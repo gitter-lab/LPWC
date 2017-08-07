@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\\name{score}\n\\alias{score}\n\\title{Score function}\n\\usage{\nscore()\n}\n\\description{\nPrints 'Hello, world!'.\n}\n\\examples{\nhello()\n}\n",
+    "created" : 1501711695828.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2288451589",
+    "id" : "7FDF4CBC",
+    "lastKnownWriteTime" : 1502123715,
+    "last_content_update" : 1502123798086,
+    "path" : "~/Desktop/LPC/man/hello.Rd",
+    "project_path" : "man/hello.Rd",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_doc"
+}
