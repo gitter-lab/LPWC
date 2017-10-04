@@ -25,7 +25,9 @@ wt.corr <- function(x, y, w){
 }
 
 #computes mean difference squared between x1 and x2
-meansq.dist <- function(x1, x2) {mean((x1 - x2) ^ 2)}
+meansq.dist <- function(x1, x2) {
+  return( ((x1 - x2)^2) / (sum((x1 - x2)^2)))
+}
 
 #returns possible values of C based on timepoints and max lag
 findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
