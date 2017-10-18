@@ -6,14 +6,22 @@
 #' @param x2 a vector with same length of x1
 #' @return a numerical value of difference in squared mean of vector x1 and x2
 #'
-#' @example
-#' meansq.dist(x1 = c(2, 6, 8, 9), x2 = c(3, 4, 8, 3))
+#' @example weight.lag(1:5, 2:6)
+#'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
 #'
 
 
-meansq.dist <- function(x1, x2) {
-  return(mean(((x1 - x2)^2) / (sum((x1 - x2)^2))))
+
+weight.lag <- function(x1, x2){
+  stopifnot(all(is.numeric(x1)), all(is.numeric(x2)))
+  if(length(x1) < length(x2)){
+    x2 <- x2[1:length(x1)]
+  }
+  else{
+    x1 <- x1[1:length(x2)]
+  }
+  return(as.matrix(rbind(x1, x2)))
 }

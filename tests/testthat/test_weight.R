@@ -1,0 +1,9 @@
+context("")
+test_that("the weight vector/penalty is/are", {
+  expect_equal(round(weight(t = c(0, 5, 10, 15, 20), lag = 1, C = 15)$w0, 2), 0.19)
+  expect_equal(round(weight(t = c(0, 2, 5, 9, 15), lag = 1, C = 15)$w, 2), c(0.77, 0.55, 0.34, 0.09))
+  expect_error(round(weight(t = c(0, 2, 5, 9, 15), lag = 3, C = 15)$w, 2))
+  expect_error(round(weight(t = c(0, 2, 5, 9, 15), lag = 3, C = "a")$w, 2))
+  expect_error(round(weight(t = c(0, 2, 5, "b", 15), lag = 3, C = "a")$w, 2))
+  expect_error(round(weight(t = c(0, 2, 5, 9, 15), lag = "f", C = "a")$w, 2))
+})

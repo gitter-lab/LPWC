@@ -8,7 +8,7 @@
 #' @param C a numeric value of C used in computing weighted correlation
 #' @return a vector of best lags used in the dataset
 #'
-#' 
+#'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
@@ -18,7 +18,8 @@ best.lag <- function(data, max.lag = NULL, timepoints, C){
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
-  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4)
+  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,
+            is.numeric(max.lag), is.numeric(C))
   shift <- rep(NA, dim(data)[1])
   for(i in 1:dim(data)[1]){
     lags <- rep(NA, (dim(data)[1]))
@@ -27,19 +28,17 @@ best.lag <- function(data, max.lag = NULL, timepoints, C){
       if(i != j){
         corr <- rep(NA, max.lag * 2 + 1)
         for(k in max.lag:1){
-          corr[max.lag - k + 1] <- exp(-1/C * meansq.dist(timepoints[(k + 1):length(timepoints)],
-                                                          timepoints[1:(length(timepoints) - k)])) *
+          corr[max.lag - k + 1] <- weight(t = timepoints, lag = k, C = C)$w0 *
             wt.corr(data[i, 1:(length(timepoints) - k)],
                     data[j, (k + 1):length(timepoints)],
-                    w = weight(t = timepoints, lag = k))
+                    w = weight(t = timepoints, lag = k, C = C)$w)
         }
         corr[max.lag + 1] <- cor(data[i, ], data[j, ])
         for(m in 1:max.lag){
-          corr[max.lag + m + 1] <- exp(-1/C * meansq.dist(timepoints[(m + 1):length(timepoints)],
-                                                          timepoints[1:(length(timepoints) - m)])) *
+          corr[max.lag + m + 1] <- weight(t = timepoints, lag = k, C = C)$w0 *
             wt.corr(data[j, 1:(length(timepoints) - m)],
                     data[i, (m + 1):length(timepoints)],
-                    w = weight(t = timepoints, lag = m))
+                    w = weight(t = timepoints, lag = m, C = C)$w)
         }
         val <- -max.lag:max.lag
         lags[j] <- val[which.max(corr)]

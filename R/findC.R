@@ -18,7 +18,7 @@
 
 
 findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
-  stopifnot(is.vector(timepoints), max.lag <= length(timepoints) / 4, is.numeric(max.lag))
+  stopifnot(all(is.numeric(timepoints)), max.lag <= length(timepoints) / 4, is.numeric(max.lag))
   penalty <- seq(0.5, 0.95, length.out = iter)
   vals <- NULL
   for(i in 1:max.lag){
