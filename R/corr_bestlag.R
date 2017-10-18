@@ -1,4 +1,4 @@
-#' Computes bet lag correlation
+#' Computes best lag correlation
 #'
 #' This function computes correlation based on best picked lags. The lags indicate delayed changes. 
 #'
