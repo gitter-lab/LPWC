@@ -23,12 +23,12 @@ prep.data <- function(data, lags){
     #given no lag
     if(lags[i] == 0){new.data[i, ] <- data[i, ]}
     #positive lag
-    else if(lags[i] > 0){
-      new.data[i, ] <- c(data[i, -(1:lags[i])], rep(NA, lags[i]))
+    else if(lags[i] < 0){
+      new.data[i, ] <- c(data[i, -(1:-lags[i])], rep(NA, lags[i]))
     }
     #negative lag
-    else if(lags[i] < 0){
-      new.data[i, ] <- c(rep(NA, (-lags[i])), data[i, 1:(dim(data)[2] + lags[i])])
+    else if(lags[i] > 0){
+      new.data[i, ] <- c(rep(NA, (lags[i])), data[i, 1:(dim(data)[2] - lags[i])])
     }
     else{
       print("There is an error in best lags!")

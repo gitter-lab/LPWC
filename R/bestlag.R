@@ -42,7 +42,7 @@ best.lag <- function(data, timepoints, max.lag = NULL, C){
                     data[i, (m + 1):length(timepoints)],
                     w = allw$w)
         }
-        val <- -max.lag:max.lag
+        val <- max.lag:-max.lag
         lags[j] <- val[which.max(corr)]
         bcorr[j] <- max(corr)
       }
