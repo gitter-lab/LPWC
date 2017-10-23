@@ -31,7 +31,60 @@ wt.corr(x = c(9, 4, 2, 7, 6), y = c(2, 4, 1, 8, 5), w = c(0.2, 0.5, 0.1, 0.9, 0.
 
 ##Weight 
 
-The weight function is used to compute the outside weight and the inside weight in LPC. The inside weight is the w in weighted correlation function above. These function are based on gaussian kernel and timepoints used in the dataset. Lags are introduced allow shifting in the dataset and penalize the correlation. Lags are donted by L. 
+The weight function is used to compute the outside weight and the inside weight in LPC. The inside weight is the w in weighted correlation function above. These function are based on gaussian kernel and timepoints used in the dataset. Lags are introduced allow shifting in the dataset and penalize the correlation. Lags are donted by L and k indicates the number of lags (shift in timepoints). If timepoints is a vector of (0, 2, 5, 8, 10, 12, 15, 16). Lag 2 is a vector of (5, 8, 10, 12, 15, 16).
+
+$$w_0 = exp(-\frac{1}{C} \frac{\sum(L^kT_j - T_i)^2}{n - k})$$
+$$\vec{w} = exp(-\frac{1}{C} (L^kT_j - T_i)^2)$$
+An example of weight function is 
+```{r}
+weight(c(1, 2, 5, 8, 9, 10, 15, 19, 20, 28), 2, C = 50)
+```
+
+##Score
+
+
+The score function takes two vector (a vector of lags and a vector a score). It computes the score of each lag and returns the lags with the highest(best) score. Example lags  = c(0, 0, 2, 1, 2, 0, 1) and score = c(0.5, 0.2, 0.7, 0.5, 0.1, 0. 4, 0.9). The score function would return 1 which is shown below. 
+
+```{r}
+score(lags  = c(0, 0, 2, 1, 2, 0, 1), c(0.5, 0.2, 0.7, 0.5, 0.1, 0.4, 0.9))
+```
+
+##FindC
+
+This function returns all possible C that can be tested. The C is dependent on timepoints of the dataset and number of lags. FindC searches for the C based on setting the w_0 (outside weight from 0.5 to 0.95(default)). For instance if we set w_0 to 0.5, the 
+
+
+$$w_0 = \frac{\sum\limits_{k = 1}^{max(k)} exp(-\frac{1}{C} \frac{\sum(L^kT_j - T_i)^2}{n - k})}{max(k)} = 0.5$$
+
+The max of k is denoted by the maximum lag allowed by the data. Usually its the smalllest integer upon dividing length of timepoints by 4. An example of the function findC is 
+
+```{r}
+findC(timepoints = c(1, 2, 5, 8, 9, 10, 15, 19, 20, 28), max.lag = 2)
+```
+
+The lowest value is denoted to w_0 = 0.5 and the highest value is denoted to w_0 = 0.95
+
+
+##Weight Lag
+
+Takes two vector with different length and matches them to the shortest of the two vector and stackes them on one another. 
+
+```{r}
+weight.lag(x1 = c(0, 5, 10, 15), x2 = c(5, 10, 15, 20, 25, 30, 35))
+```
+
+##Prep Data
+
+The prep.data function takes the dataset and lags as input and return the modified dataset with NA's where lags are necessary to compute the correlation. An example of the function
+
+```{r}
+prep.data(rbind(c(0, 7, 8, 9, 2, 3), c(2, 4, 2, 7, 5, 2)), lags = c(1, -1))
+```
+
+
+
+
+
 
 
 
