@@ -21,7 +21,10 @@
 
 
 
-corr.bestlag <- function(data, max.lag = 2, timepoints, C = NULL, penalty = "high", k = 10, iter = 10){
+corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "high", k = 10, iter = 10){
+  if(is.null(max.lag)){
+    max.lag <- floor(length(timepoints) / 4)
+  }
   stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4 , is.numeric(k), is.numeric(iter), 
             penalty == "high" | penalty == "low", max.lag %% 1 == 0, k %% 1 == 0, iter %% 1 == 0)
   values <- findC(timepoints, max.lag, iter = iter)

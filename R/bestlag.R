@@ -14,7 +14,7 @@
 #'
 #'
 
-best.lag <- function(data, max.lag = NULL, timepoints, C){
+best.lag <- function(data, timepoints, max.lag = NULL, C){
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
@@ -28,17 +28,19 @@ best.lag <- function(data, max.lag = NULL, timepoints, C){
       if(i != j){
         corr <- rep(NA, max.lag * 2 + 1)
         for(k in max.lag:1){
-          corr[max.lag - k + 1] <- weight(t = timepoints, lag = k, C = C)$w0 *
+          allw <- weight(t = timepoints, lag = k, C = C)
+          corr[max.lag - k + 1] <- allw$w0 *
             wt.corr(data[i, 1:(length(timepoints) - k)],
                     data[j, (k + 1):length(timepoints)],
-                    w = weight(t = timepoints, lag = k, C = C)$w)
+                    w = allw$w)
         }
         corr[max.lag + 1] <- cor(data[i, ], data[j, ])
         for(m in 1:max.lag){
-          corr[max.lag + m + 1] <- weight(t = timepoints, lag = k, C = C)$w0 *
+          allw <- weight(t = timepoints, lag = m, C = C)$w0
+          corr[max.lag + m + 1] <- allw$w0 *
             wt.corr(data[j, 1:(length(timepoints) - m)],
                     data[i, (m + 1):length(timepoints)],
-                    w = weight(t = timepoints, lag = m, C = C)$w)
+                    w = allw$w)
         }
         val <- -max.lag:max.lag
         lags[j] <- val[which.max(corr)]
