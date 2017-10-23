@@ -28,17 +28,17 @@ comp.corr <- function(data, timepoints, C){
       else{
         t1 <- timepoints[complete.cases(pair[1, ])]
         t2 <- timepoints[complete.cases(pair[2, ])]
-        weight <- weight.lag(t1, t2)
+        time <- weight.lag(t1, t2)
         comp <- complete.cases(t(pair))
-        weight <- weight[, 1:sum(comp)]
+        time <- time[, 1:sum(comp)]
         pair.full <- pair[, comp]
-        if(all(weight[1,] == weight[2,])){
+        if(all(time[1,] == time[2,])){
           corr[i, j] <- cor(pair.full[1, ], pair.full[2, ])
         }
         else{
-          weights <- exp(-1/C * apply(weight, 2, function(x){(diff(x))^2}))
-          corr[i, j] <- exp(- 1 / C * meansq.dist(weight[1, ], weight[2, ])) *
-            wt.corr(pair.full[1, ], pair.full[2, ], weights)
+          weights <- apply(time, 2, function(x){(diff(x))^2})
+          corr[i, j] <- exp(- 1 / C * mean(weights)) *
+            wt.corr(pair.full[1, ], pair.full[2, ], exp(-1 / C * weights))
         }
       }
     }

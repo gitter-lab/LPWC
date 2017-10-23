@@ -22,8 +22,8 @@ findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
   penalty <- seq(0.5, 0.95, length.out = iter)
   vals <- NULL
   for(i in 1:max.lag){
-    vals <- c(vals, meansq.dist(timepoints[(i + 1):length(timepoints)],
-                                timepoints[1:(length(timepoints) - i)]))
+    vals <- c(vals, mean((timepoints[(i + 1):length(timepoints)] -
+                                timepoints[1:(length(timepoints) - i)])^2))
   }
   vals <- - mean(vals) / log(penalty)
   return(vals)
