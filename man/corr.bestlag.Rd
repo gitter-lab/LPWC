@@ -2,17 +2,17 @@
 % Please edit documentation in R/corr_bestlag.R
 \name{corr.bestlag}
 \alias{corr.bestlag}
-\title{Computes bet lag correlation}
+\title{Computes best lag correlation}
 \usage{
-corr.bestlag(data, max.lag = 2, timepoints, C = NULL, penalty = "high",
+corr.bestlag(data, timepoints, max.lag = NULL, C = NULL, penalty = "high",
   k = 10, iter = 10)
 }
 \arguments{
 \item{data}{a matrix with columns representing different timepoints}
 
-\item{max.lag}{a integer value of the maximum lags allowed in the dataset}
-
 \item{timepoints}{a vector of time points used in the dataset}
+
+\item{max.lag}{a integer value of the maximum lags allowed in the dataset}
 
 \item{C}{a numeric value of C used in computing weighted correlation}
 

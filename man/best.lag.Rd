@@ -4,14 +4,14 @@
 \alias{best.lag}
 \title{Best Lag}
 \usage{
-best.lag(data, max.lag = NULL, timepoints, C)
+best.lag(data, timepoints, max.lag = NULL, C)
 }
 \arguments{
 \item{data}{a matrix with columns representing different timepoints}
 
-\item{max.lag}{a numeric value of the maximum lag allowed}
-
 \item{timepoints}{a vector of time points used in the dataset}
+
+\item{max.lag}{a numeric value of the maximum lag allowed}
 
 \item{C}{a numeric value of C used in computing weighted correlation}
 }

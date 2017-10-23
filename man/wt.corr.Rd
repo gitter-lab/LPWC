@@ -2,10 +2,7 @@
 % Please edit documentation in R/wt_corr.R
 \name{wt.corr}
 \alias{wt.corr}
-\title{Weighted correlation
- 
-This function computes weighted pearson correlation between two vectors with weights given. The ouput is between -1 and 1 with 1 
-being highly positive correlated, -1 with highly negative correlation and 0 being no correlation}
+\title{Weighted correlation}
 \source{
 \url{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient#Weighted_correlation_coefficient}
 }
@@ -23,8 +20,6 @@ wt.corr(x, y, w)
 a numerical value of weighted pearson correlation
 }
 \description{
-Weighted correlation
- 
-This function computes weighted pearson correlation between two vectors with weights given. The ouput is between -1 and 1 with 1 
+This function computes weighted pearson correlation between two vectors with weights given. The ouput is between -1 and 1 with 1
 being highly positive correlated, -1 with highly negative correlation and 0 being no correlation
 }

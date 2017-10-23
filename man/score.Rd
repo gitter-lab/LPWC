@@ -2,9 +2,7 @@
 % Please edit documentation in R/score.R
 \name{score}
 \alias{score}
-\title{Score of Lags
- 
-This function computes the score of best lags by summing the correlation of corresponding lags}
+\title{Score of Lags}
 \usage{
 score(corr, lags)
 }
@@ -17,8 +15,6 @@ score(corr, lags)
 a numerical value of best lag picked based on corr and lags
 }
 \description{
-Score of Lags
- 
 This function computes the score of best lags by summing the correlation of corresponding lags
 }
 \author{

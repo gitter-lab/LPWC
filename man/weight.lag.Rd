@@ -2,20 +2,20 @@
 % Please edit documentation in R/weight_lag.R
 \name{weight.lag}
 \alias{weight.lag}
-\title{Mean Square Distance}
+\title{Weight Lag}
 \usage{
 weight.lag(x1, x2)
 }
 \arguments{
 \item{x1}{a vector}
 
-\item{x2}{a vector with same length of x1}
+\item{x2}{a vector}
 }
 \value{
-a numerical value of difference in squared mean of vector x1 and x2
+a matrix with two rows with the shortest length of the vector as the number of columns
 }
 \description{
-This function computes difference in mean square distance between two vector
+This function matches vector of two different lengths
 }
 \author{
 Thevaa Chandereng, Anthony Gitter

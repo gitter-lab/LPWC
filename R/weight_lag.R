@@ -1,12 +1,12 @@
-#' Mean Square Distance
+#' Weight Lag
 #'
-#' This function computes difference in mean square distance between two vector
+#' This function matches vector of two different lengths
 #'
 #' @param x1 a vector
-#' @param x2 a vector with same length of x1
-#' @return a numerical value of difference in squared mean of vector x1 and x2
+#' @param x2 a vector
+#' @return a matrix with two rows with the shortest length of the vector as the number of columns
 #'
-#' @example weight.lag(1:5, 2:6)
+#' @example weight.lag(1:5, 2:9)
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
