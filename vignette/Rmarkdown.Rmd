@@ -1,0 +1,38 @@
+---
+title: LPC
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{LPC R Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8](inputenc)
+---
+
+```{r, echo = FALSE}
+library(knitr)
+library(LPC)
+```
+
+
+##Weight Correlation
+
+This is Pearson weighted correlation extracted from {https://en.wikipedia.org/wiki/Pearson_correlation_coefficient#Weighted_correlation_coefficient}. x and y represent the numeric vector used for correlation and w is the weight vector. w is standardized before the weighted correlation is calculated.
+
+
+$$\sum_i w_i = 1$$
+$$Corr_w(x, y, w) =\frac{\sum_i w_i(x_i -\bar{x})(y_i - \bar{y})}{\sqrt{\sum_i w_i(x_i - \bar{x})^2 \sum_i w_i(y_i - \bar{y})^2}}$$
+
+
+An example of the function wt.corr
+```{r}
+wt.corr(x = c(9, 4, 2, 7, 6), y = c(2, 4, 1, 8, 5), w = c(0.2, 0.5, 0.1, 0.9, 0.2))
+```
+
+
+
+##Weight 
+
+The weight function is used to compute the outside weight and the inside weight in LPC. The inside weight is the w in weighted correlation function above. These function are based on gaussian kernel and timepoints used in the dataset. Lags are introduced allow shifting in the dataset and penalize the correlation. Lags are donted by L. 
+
+
+
+
