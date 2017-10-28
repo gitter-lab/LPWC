@@ -1,5 +1,7 @@
 # LPC: Short Time Series Clustering Using Lag Penalized Correlation
 
+[![Build Status](https://travis-ci.org/gitter-lab/LPC.svg?branch=master)](https://travis-ci.org/gitter-lab/LPC)
+
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
 
