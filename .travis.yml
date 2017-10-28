@@ -1,0 +1,9 @@
+# See https://docs.travis-ci.com/user/languages/r/
+language: r
+cache: packages
+
+notifications:
+  email: false
+
+# Will fail with WARNINGS from R CMD check.  Uncomment to ignore WARNINGS.
+# warnings_are_errors: false
