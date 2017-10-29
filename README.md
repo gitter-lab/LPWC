@@ -23,4 +23,4 @@ devtools::install_github("https://github.com/gitter-lab/LPC")
 
 Usage
 ------------
-See the vignette for usage instructions.
+See the [vignette](http://htmlpreview.github.io/?https://github.com/gitter-lab/LPC/blob/master/vignette/Rmarkdown.html) for usage instructions.
