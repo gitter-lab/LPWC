@@ -36,7 +36,7 @@ best.lag <- function(data, timepoints, max.lag = NULL, C){
         }
         corr[max.lag + 1] <- cor(data[i, ], data[j, ])
         for(m in 1:max.lag){
-          allw <- weight(t = timepoints, lag = m, C = C)$w0
+          allw <- weight(t = timepoints, lag = m, C = C)
           corr[max.lag + m + 1] <- allw$w0 *
             wt.corr(data[j, 1:(length(timepoints) - m)],
                     data[i, (m + 1):length(timepoints)],
