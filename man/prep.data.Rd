@@ -4,15 +4,17 @@
 \alias{prep.data}
 \title{Preparing Data}
 \usage{
-prep.data(data, lags)
+prep.data(data, lags, timepoints)
 }
 \arguments{
 \item{data}{a matrix with columns representing different timepoints}
 
 \item{lags}{a vector of same length as the number of rows in the data column indicating the best lags}
+
+\item{timepoints}{a vector of time points used in the dataset}
 }
 \value{
-a matrix with NA's introduced where lags are needed
+a list of two matrix, matrix with NA's for the lags for the dataset and timepoints used for each row in the dataset
 }
 \description{
 This function prepares the data to compute correlation by introducing NA's when lags are needed
