@@ -4,12 +4,12 @@
 \alias{comp.corr}
 \title{Computing corr}
 \usage{
-comp.corr(data, timepoints, C)
+comp.corr(data, time, C)
 }
 \arguments{
-\item{data}{a matrix of data with the columns representing different timepoints}
+\item{data}{a matrix of data with the columns representing different timepoints (NA's added when lags are needed)}
 
-\item{timepoints}{a vector which contains all the timepoints represented in the data}
+\item{time}{a vector which contains all the timepoints represented in the data}
 
 \item{C}{a numeric value of C used in computing weighted correlation}
 }
