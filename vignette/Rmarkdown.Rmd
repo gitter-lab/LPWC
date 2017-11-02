@@ -1,5 +1,4 @@
 ---
-title: LPC
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{LPC R Package}
