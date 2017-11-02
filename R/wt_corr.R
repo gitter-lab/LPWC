@@ -17,6 +17,9 @@
 wt.corr <- function(x, y, w){
   stopifnot(all(is.numeric(c(x, y, w))),
             length(x) == length(y), length(x) == length(w))
+  if(all(w == 0)){
+    w <- w + 1
+  }
   if(sum(w) != 1){
     w <- w / sum(w)
   }
