@@ -2,9 +2,7 @@
 % Please edit documentation in R/findC.R
 \name{findC}
 \alias{findC}
-\title{Finding best C
- 
-This function computes the best C using the timepoints and max lag in the dataset}
+\title{Finding best C}
 \usage{
 findC(timepoints, max.lag = NULL, pi = 0.95, iter = 10)
 }
@@ -21,8 +19,6 @@ findC(timepoints, max.lag = NULL, pi = 0.95, iter = 10)
 a vector of length (10 or indicated by iter) different C to be tested
 }
 \description{
-Finding best C
- 
 This function computes the best C using the timepoints and max lag in the dataset
 }
 \author{
