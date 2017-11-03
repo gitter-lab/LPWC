@@ -1,6 +1,6 @@
 #' Computes best lag correlation
 #'
-#' This function computes correlation based on best picked lags. The lags indicate delayed changes. 
+#' This function computes correlation based on best picked lags. The lags indicate delayed changes.
 #'
 #' @param data a matrix with columns representing different timepoints
 #' @param max.lag a integer value of the maximum lags allowed in the dataset
@@ -25,13 +25,13 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
-  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4 , is.numeric(k), is.numeric(iter), 
+  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4 , is.numeric(k), is.numeric(iter),
             penalty == "high" | penalty == "low", max.lag %% 1 == 0, k %% 1 == 0, iter %% 1 == 0)
   values <- findC(timepoints, max.lag, iter = iter)
   if(penalty == "high" || is.numeric(C)){
     lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[1])
-    new.data <- prep.data(data, lags)
-    return(list(corr = comp.corr(new.data, timepoints, C = values[1]), lags = lags))
+    new.data <- prep.data(data, lags, timepoints)
+    return(list(corr = comp.corr(new.data$data, new.data$time, C = values[1]), lags = lags))
   }
   else if(penalty == "low"){
     clustdiff <- rep(NA, length(values) - 1)
@@ -39,8 +39,8 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
     alllags <- NULL
     for(i in 1:length(values)){
       lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[i])
-      new.data <- prep.data(data, lags)
-      result <- list(corr = comp.corr(new.data, timepoints, C = values[i]), lags = lags)
+      new.data <-  prep.data(data, lags, timepoints)
+      result <- list(corr = comp.corr(new.data$data, new.data$times, C = values[i]))
       allcorr[[i]] <- result$corr
       alllags[[i]] <- result$lags
     }
