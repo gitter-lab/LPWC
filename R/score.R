@@ -24,3 +24,7 @@ score <- function(corr, lags){
   return(alags[which.max(value)])
 }
 
+
+
+
+

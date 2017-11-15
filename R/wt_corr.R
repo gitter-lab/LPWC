@@ -20,7 +20,7 @@ wt.corr <- function(x, y, w){
   if(all(w == 0)){
     w <- w + 1
   }
-  if(sum(w) != 1){
+  else if(sum(w) != 1){
     w <- w / sum(w)
   }
   mx <- sum(w * x)
