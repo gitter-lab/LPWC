@@ -7,7 +7,6 @@
 #' @param timepoints a vector of time points used in the dataset
 #' @param C a numeric value of C used in computing weighted correlation
 #' @param penalty a character with two levels high and low penalty on the weighted correlation
-#' @param k a integer indicating the number of cluster groups to be assigned
 #' @param iter an integer indicating numbers of C's to test for low penalty
 #' @return a list containing weighted correlation and best lags used in eacch row
 #'
@@ -21,7 +20,8 @@
 
 
 
-corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "high", k = 10, iter = 10){
+
+corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "high", iter = 10){
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
@@ -37,16 +37,17 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
     clustdiff <- rep(NA, length(values) - 1)
     allcorr <- NULL
     alllags <- NULL
-    for(i in 1:length(values)){
-      lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[i])
+    for(v in 1:length(values)){
+      lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[v])
       new.data <-  prep.data(data, lags, timepoints)
-      result <- list(corr = comp.corr(new.data$data, new.data$times, C = values[i]))
-      allcorr[[i]] <- result$corr
-      alllags[[i]] <- result$lags
+      result <- list(corr = comp.corr(new.data$data, new.data$time, C = values[v]), lags = lags)
+      allcorr[[v]] <- result$corr
+      alllags[[v]] <- result$lags
     }
     for(j in 1:(length(values) - 1)){
-      clustdiff[j] <- (cutree(hclust(allcorr[[j + 1]]), k = k) - cutree(hclust(allcorr[[j]]), k = k)) ^ 2
+      clustdiff[j] <- sum((alllags[[j + 1]] - alllags[[j]])^2)
     }
-    return(list(corr = allcorr[[which.min(clustdiff) + 1]], lags = alllags[[which.min(clustdiff) + 1]]))
+    return(list(corr = allcorr[[which.max(clustdiff) + 1]], lags = alllags[[which.max(clustdiff) + 1]],
+                bestC = values[which.max(clustdiff) + 1] ))
   }
 }
