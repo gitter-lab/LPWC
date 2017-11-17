@@ -1,0 +1,47 @@
+%\VignetteIndexEntry{Bioconductor LaTeX Style 2.0}
+%\VignettePackage{BiocStyle}
+%\VignetteEngine{utils::Sweave}
+
+\documentclass{article}
+
+<<style, eval=TRUE, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
+
+\usepackage{booktabs} % book-quality tables
+
+\newcommand\BiocStyle{\Rpackage{BiocStyle}}
+\newcommand\knitr{\Rpackage{knitr}}
+\newcommand\rmarkdown{\Rpackage{rmarkdown}}
+\newcommand\Sweave{\software{Sweave}}
+\newcommand\latex[1]{{\ttfamily #1}}
+
+\makeatletter
+\def\thefpsfigure{\fps@figure}
+\makeatother
+
+\newcommand{\exitem}[3]{%
+  \item \latex{\textbackslash#1\{#2\}} #3 \csname#1\endcsname{#2}.%
+}
+
+\title{LPC}
+\author{Thevaa Chandereng \& Anthony Gitter}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\section{Run LPC}
+
+\section{Required Input}
+
+
+\end{document}
