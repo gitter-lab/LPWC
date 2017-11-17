@@ -1,6 +1,7 @@
 set.seed(2094)
 sim.data <- array(rnorm(50), c(10, 5))
-impulse1 <- read.table("../impulse1", header = T)
+
+impulse1 <- read.table("impulse1", header = T)
 
 context("best.lag")
 test_that("the best lag is", {
