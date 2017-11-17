@@ -5,7 +5,7 @@
 \title{Computes best lag correlation}
 \usage{
 corr.bestlag(data, timepoints, max.lag = NULL, C = NULL, penalty = "high",
-  k = 10, iter = 10)
+  iter = 10)
 }
 \arguments{
 \item{data}{a matrix with columns representing different timepoints}
@@ -17,8 +17,6 @@ corr.bestlag(data, timepoints, max.lag = NULL, C = NULL, penalty = "high",
 \item{C}{a numeric value of C used in computing weighted correlation}
 
 \item{penalty}{a character with two levels high and low penalty on the weighted correlation}
-
-\item{k}{a integer indicating the number of cluster groups to be assigned}
 
 \item{iter}{an integer indicating numbers of C's to test for low penalty}
 }
