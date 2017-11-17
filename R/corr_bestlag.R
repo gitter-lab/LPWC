@@ -31,7 +31,8 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   if(penalty == "high" || is.numeric(C)){
     lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[1])
     new.data <- prep.data(data, lags, timepoints)
-    return(list(corr = comp.corr(new.data$data, new.data$time, C = values[1]), lags = lags))
+    return(list(corr = comp.corr(new.data$data, new.data$time, C = values[1]), lags = lags,
+                C = values[1]))
   }
   else if(penalty == "low"){
     clustdiff <- rep(NA, length(values) - 1)
@@ -45,9 +46,9 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
       alllags[[v]] <- result$lags
     }
     for(j in 1:(length(values) - 1)){
-      clustdiff[j] <- sum((alllags[[j + 1]] - alllags[[j]])^2)
+      clustdiff[j] <- sum((as.vector(allcorr[[j + 1]]) - as.vector(allcorr[[j]]))^2)
     }
-    return(list(corr = allcorr[[which.max(clustdiff) + 1]], lags = alllags[[which.max(clustdiff) + 1]],
-                bestC = values[which.max(clustdiff) + 1] ))
+    return(list(corr = allcorr[[which.min(clustdiff) + 1]], lags = alllags[[which.min(clustdiff) + 1]],
+                C = values[which.min(clustdiff) + 1] ))
   }
 }
