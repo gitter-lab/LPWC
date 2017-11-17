@@ -8,3 +8,4 @@
 .tar.gz
 .Rbuildignore
 .DS_Store
+.Rproj
