@@ -25,8 +25,9 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
-  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4 , is.numeric(k), is.numeric(iter),
-            penalty == "high" | penalty == "low", max.lag %% 1 == 0, k %% 1 == 0, iter %% 1 == 0)
+  data <- as.matrix(data)
+  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,  is.numeric(iter),
+            penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0)
   values <- findC(timepoints, max.lag, iter = iter)
   if(penalty == "high" || is.numeric(C)){
     lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[1])

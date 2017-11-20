@@ -15,6 +15,7 @@
 #'
 
 best.lag <- function(data, timepoints, max.lag = NULL, C){
+  data <- as.matrix(data)
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
