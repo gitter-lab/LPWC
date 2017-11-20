@@ -9,3 +9,7 @@
 .Rbuildignore
 .DS_Store
 .Rproj
+
+
+!\vignette\*.Rmd
+!\vignette\*.html
