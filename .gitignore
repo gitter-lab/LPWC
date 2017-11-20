@@ -11,5 +11,7 @@
 *.Rproj
 
 
-!\vignette\*.Rmd
-!\vignette\*.html
+
+vignette
+!./vignette/*.Rmd
+!./vignette/*.html
