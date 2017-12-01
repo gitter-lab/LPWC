@@ -1,7 +1,7 @@
-Package: LPC
+Package: LPWC
 Version: 0.1.0
 Date: 2017-10-17
-Title: Short Time series clustering using Lag Penalized Correlation Distance
+Title: Short Time series clustering using Lag Penalized Weighted Correlation Distance
 Author: Thevaa Chandereng <chandereng@wisc.edu>, Anthony Gitter
 Maintainer: Thevaa Chandereng <chandereng@wisc.edu>
 Description: Computes short time series distance based on correlation and introduction of lags. The lags capture delayed response in a time series data. The timepoints used should be specified

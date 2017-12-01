@@ -1,2 +1,2 @@
 library(testthat)
-test_check("LPC")
+test_check("LPWC")
