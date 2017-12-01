@@ -10,8 +10,6 @@
 *.DS_Store
 *.Rproj
 
-
-
-vignette
+vignette/*
 !vignette/*.Rmd
 .Rproj.user
