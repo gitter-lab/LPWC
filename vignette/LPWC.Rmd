@@ -27,7 +27,7 @@ knitr::opts_chunk$set(tidy=FALSE, cache=TRUE,
 ```	
 
 
-#Introduction
+# Introduction
 
 Time series data unlike other data are a series of data collected across different timepoints which are dependent on the past data.
 In biology, most time series data consist of fewer time points making the analysis of time series data more complicated.
@@ -70,7 +70,7 @@ library(LPWC)
 
 
 
-##Required Input
+## Required Input
 
 **Data :**  Input to LPWC is a matrix. The expression matix shoud be n -by- p where n is the number of genes (in rows) and p is the timepoints where data where collected. 
 
