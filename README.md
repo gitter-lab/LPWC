@@ -23,4 +23,4 @@ devtools::install_github("https://github.com/gitter-lab/LPWC")
 
 Usage
 ------------
-See the vignette for usage instructions.
+See the [vignette](vignette/LPWC.Rmd) for usage instructions.
