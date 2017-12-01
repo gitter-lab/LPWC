@@ -13,6 +13,5 @@
 
 
 vignette
-!./vignette/*.Rmd
-!./vignette/*.html
+!vignette/*.Rmd
 .Rproj.user
