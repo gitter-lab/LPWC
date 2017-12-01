@@ -1,6 +1,6 @@
 # LPWC: Short Time Series Clustering Using Lag Penalized Weighted Correlation
 
-[![Build Status](https://travis-ci.org/gitter-lab/LPC.svg?branch=master)](https://travis-ci.org/gitter-lab/LPC)
+[![Build Status](https://travis-ci.org/gitter-lab/LPWC.svg?branch=master)](https://travis-ci.org/gitter-lab/LPWC)
 
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
@@ -16,11 +16,11 @@ LPWC also supports irregular time intervals between time points collected in bio
 Installation
 ------------
 The first major release of LPWC will be added to Bioconductor.
-Until then, the easiest way to install LPC is as follows:
+Until then, the easiest way to install LPWC is as follows:
 ``` r
 devtools::install_github("https://github.com/gitter-lab/LPWC")
 ```
 
 Usage
 ------------
-See the [vignette](http://htmlpreview.github.io/?https://github.com/gitter-lab/LPC/blob/master/vignette/LPC.html) for usage instructions.
+See the vignette for usage instructions.
