@@ -156,9 +156,11 @@ cutree(hclust(dist), k = 3)
 We have benefited in the development of LPWC from the help and
 feedback of many individuals, including but not limited to: 
 
-Gitter Lab Members,
+Wenzhi Cao, 
+Jen Birstler,
 James Dowell,
-Ron Stewart
+Ron Stewart, 
+Gitter Lab Members.
 
 
 # Session info
