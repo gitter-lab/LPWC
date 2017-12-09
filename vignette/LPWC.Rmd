@@ -3,9 +3,9 @@ title: "LPWC: Lag Penalized Weighted Correlation for Clustering Short Time Serie
 author: "Thevaa Chandereng & Anthony Gitter"
 date: "`r BiocStyle::doc_date()`"
 package: "`r BiocStyle::2'"
-abstract: > 
-  
- 
+abstract: >
+
+
 output:
   rmarkdown::html_document:
     highlight: pygments
@@ -24,20 +24,23 @@ vignette: >
 knitr::opts_chunk$set(tidy=FALSE, cache=TRUE,
                       dev="png",
                       message=FALSE, error=FALSE, warning=TRUE)
-```	
+```
 
 
 # Introduction
 
-Time series data unlike other data are a series of data collected across different timepoints which are dependent on the past data.
-In biology, most time series data consist of fewer time points making the analysis of time series data more complicated.
-Good clustering method in time series captures similar temporal shape in a dataset. Similarity in expression patterns can correspond to similarity in biological function, which helps aid in the direction of future research. 
-Lag Penalized Weighted Correlation(LPWC) is a distance based clustering permiting lags using weighted correlation. 
-LPWC accomodates lags but due to the length of the time series, the lags are penalized using gausssian kernel. 
-Unlike many other time series data, LPWC also accounts for irregular time sampling.
+Time series data are a series of observations collected across different timepoints in which the ordering of the observations can convey important information.
+In biology, most time series data consist of a limited number of time points, complicating the analysis.
+An example of biological time series data is gene expression data, where the relative abundances of all genes is recorded over multiple hours, days, or weeks.
+One property of a good clustering method for time series data is that it groups similar temporal shapes.
+Similarity in expression patterns may correspond to similarity in biological function, which helps aid in the direction of future research.
+Lag Penalized Weighted Correlation (LPWC) is a distance-based clustering algorithm that builds upon weighted correlation.
+LPWC accommodates lags, allowing two entities (for example, genes) that exhibit similar temporal behaviors that are not perfectly synchronized to be clustered together.
+Lags are penalized using a Gaussian kernel so that synchronized temporal patterns are preferred over lagged patterns.
+Unlike many other clustering approaches, LPWC also accounts for irregular time sampling in which there are non-uniform intervals between timepoints.
 
 
-If you use LPWC in published research, please cite:
+If you use LPWC in published research, please cite our preprint, which will appear soon.
 
 
 If after reading through this vignette you have questions or problems
@@ -46,7 +49,7 @@ This will notify the package maintainers and benefit other users.
 
 
 You should **not** email your question to the package authors, as we will
-just reply that the question should be posted to the 
+just reply that the question should be posted to the
 **Bioconductor support site**.
 
 
@@ -72,9 +75,12 @@ library(LPWC)
 
 ## Required Input
 
-**Data :**  Input to LPWC is a matrix. The expression matix shoud be n -by- p where n is the number of genes (in rows) and p is the timepoints where data where collected. 
+**Data :**  Input to LPWC is a matrix.
+We assume here that it is a gene expression matrix, but other data types are suitable as well.
+The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints.
 
-The object **simdata** is a simulated data for 200 genes with 8 timepoints. This is stored as a matrix.
+The object **simdata** is a simulated dataset for 200 genes with 8 timepoints.
+This is stored as a matrix.
 
 
 
@@ -86,7 +92,7 @@ str(simdata)
 
 
 
-**Timepoints: ** The object **timepoints** should be a vector of timepoints where data was collected. This should match column length in **Data**. This can be in any form (secs, mins, hours or even days), but make sure they are uniform throughout. 
+**Timepoints:** The object **timepoints** should be a vector of timepoints where data was collected. This should match column length in **Data**. This can be in any form (seconds, minutes, hours, or even days), but make sure the units are uniform throughout.
 
 The timepoints used in **Data** are
 ```{r time}
@@ -95,26 +101,31 @@ timepoints
 ```
 
 
-**Data** and **Timepoints** are the main requirement to run LPWC, however, there are other parameters that is used in running LPWC. These are not required, but they do affect the results of LPWC
+**Data** and **Timepoints** are the main requirement to run LPWC, however, there are other optional parameters. These are not required, but they do affect the results.
+Our manuscript referenced above describes these parameters in more detail.
 
-**Max.lag: ** The object **max.lag** should be a numerical output where the maximum lag is specified. This max.lag has to be less than the floor of length(timepoints) / 4. 
-
-
-**C:** The object **C** should be a numeric. This controls the gaussian kernel function used to impose penalty on the lag and weights in weighed correlation vector. For more details, please look at the literaure. 
-
-
-**penalty:** The object **penalty** only takes two arguments: low and high. High penalty imposes higher penalty on lags thus favoring non-lag cases, meanwhile lower peanlty does vice versa. The default is set to "high" penalty. For more details, please look at the literaure. 
+**Max.lag:** The object **max.lag** should be a numerical output where the maximum lag is specified. This max.lag has to be less than the floor of length(timepoints) / 4.
+That is because longer lags lead to comparisons between two expression profiles that use less than half of the data points, which can lead to spurious correlations.
 
 
-**iter:** The object *iter* should be a numeric. This controls the number of C should be tested. The default is set at 10, but you can increase or decrease it. Increasing iter, increases computational time. This is only relevant for low penalty as the high penalty have a fixed penalty. 
+**C:** The object **C** should be a numeric. This controls the width of the Gaussian kernel function used to penalize the lag and the weights in weighed correlation vector.
 
 
-## LPWC : Similarity
+**penalty:** The object **penalty** only allows two values: "low" and "high".
+High  imposes a higher penalty on lags thus favoring grouping genes without introducing lags.
+The lower penalty leads to more lags in the clusters.
+The default is set to "high" penalty.
 
-LPWC will compute similarity/correlation between genes and return three output: correlation of genes in dist form (see as.dist), lags used for each gene and the C used in the LPWC. 
+
+**iter:** The object **iter** should be a numeric. This controls the number of values of C that should be tested when automatically setting the C parameter. The default is 10. Increasing iter increases computational time. This is only relevant for the low penalty because the high penalty have a fixed penalty.
 
 
-An example output of LPWC for 10 genes using high penalty
+## LPWC: Similarity
+
+LPWC computes similarity (an adjusted weighted correlation) between genes and returns three output: correlation of genes in dist form (see as.dist), lags used for each gene, and the C used.
+
+
+An example output of LPWC for 10 genes using high penalty follows:
 
 
 ```{r}
@@ -122,19 +133,20 @@ An example output of LPWC for 10 genes using high penalty
 LPWC::corr.bestlag(simdata[49:58, ], timepoints = timepoints, max.lag = 2, penalty = "high", iter = 10)
 ```
 
-However, most clustering algorithm takes distance as an ouput, especially hierarchical clustering, we can convert the similarity to distance by subtracting the similarity from 1.
+However, many clustering algorithms, such as hierarchical clustering, take distance as an input.
+We convert the similarities to distances by subtracting the similarity from 1.
 
 $$ -1\leq Corr \leq 1$$
 When we take Dist = 1- Corr
 $$ 0\leq Dist = (1- Corr) \leq 2$$
 
 
-##Evaluating cluster using Hierarchical Method
+## Generating clusters using hierarchical clustering
 
+LPWC computes a similarity matrix and does not directly cluster the genes.
+A standard similarity-based clustering algorithm such as hierarchical clustering can be applied to the LPWC similarities.
 
-To evaluate the distance function, we need to extract the correlation and subtract to get the distance. 
-
-An example for 10 genes
+An example for 10 genes:
 
 ```{r clust1}
 dist <- 1 - LPWC::corr.bestlag(simdata[11:20, ], timepoints = timepoints, max.lag = 2, penalty = "low", iter = 10)$corr
@@ -142,7 +154,8 @@ plot(hclust(dist))
 ```
 
 
-These can also be assigned to cluster using cutree function. The example of cluster assignement with 3 cluster size
+The genes can also be assigned to clusters using cutree function.
+An example of cluster assignment with 3 clusters:
 
 ```{r clust 2}
 dist <- 1 - LPWC::corr.bestlag(simdata[11:20, ], timepoints = timepoints, max.lag = 2, penalty = "low", iter = 10)$corr
@@ -153,13 +166,13 @@ cutree(hclust(dist), k = 3)
 
 # Contributors
 
-We have benefited in the development of LPWC from the help and
-feedback of many individuals, including but not limited to: 
+Our development of LPWC benefited from help and
+feedback from many individuals, including but not limited to:
 
-Wenzhi Cao, 
+Wenzhi Cao,
 Jen Birstler,
 James Dowell,
-Ron Stewart, 
+Ron Stewart,
 Gitter Lab Members.
 
 
@@ -172,7 +185,10 @@ sessionInfo()
 
 # FAQ
 
-- How to speed up LPWC for low penalty with large gene set?
+- How can I speed up LPWC for low penalty with a large dataset?
+
+We recommend parallelizing parts of the analysis, as shown below:
+
 ```{r, eval = FALSE}
 
 comb <- function(x, ...) {
@@ -186,13 +202,13 @@ data <- simdata[1:10, ]
 iter <- 10
 allC <- findC(timepoints = timepoints, max.lag = 2)
 
-##setting clusters
+## setting clusters
 core <- parallel::detectCores() - 1
 cl <- parallel::makeCluster(core)
 doParallel::registerDoParallel(cl)
 
 
-##results from multiple C
+## results from multiple C
 result <- foreach(i = 1:iter, .combine='comb', .multicombine=TRUE,
                 .init=list(list(), list())) %dopar% {
             lags <- best.lag(data, max.lag = 3, timepoints = timepoints, C = allC[i])
@@ -203,7 +219,7 @@ result <- foreach(i = 1:iter, .combine='comb', .multicombine=TRUE,
 allcorr <- result[[1]]
 alllags <- result[[2]]
 
-##picking best C
+## picking best C
 val <- rep(NA, (length(iter) - 1))
 for(i in 1:(iter - 1)){
   val[i] <- sum((as.vector(allcorr[[i + 2]]) - as.vector(allcorr[[i + 1]]))^2)
@@ -211,9 +227,4 @@ for(i in 1:(iter - 1)){
 
 result <- list(corr = allcorr[[which.min(val) + 1]], lags = alllags[[which.min(val) + 1]], C = values[which.min(val) + 1])
 
-
-
-
 ```
-
-
