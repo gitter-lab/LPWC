@@ -73,7 +73,7 @@ library(LPWC)
 
 
 
-## Required Input
+## Required input
 
 **Data :**  Input to LPWC is a matrix.
 We assume here that it is a gene expression matrix, but other data types are suitable as well.
@@ -120,7 +120,7 @@ The default is set to "high" penalty.
 **iter:** The object **iter** should be a numeric. This controls the number of values of C that should be tested when automatically setting the C parameter. The default is 10. Increasing iter increases computational time. This is only relevant for the low penalty because the high penalty have a fixed penalty.
 
 
-## LPWC: Similarity
+## Obtaining gene-gene similarities
 
 LPWC computes similarity (an adjusted weighted correlation) between genes and returns three output: correlation of genes in dist form (see as.dist), lags used for each gene, and the C used.
 
