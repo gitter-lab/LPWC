@@ -14,7 +14,6 @@ output:
     fig_width: 5
     number_sections: true
 vignette: >
-  %\VignetteIndexEntry{Analyzing RNA-seq data with DESeq2}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding[utf8]{inputenc}
 ---
