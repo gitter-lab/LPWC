@@ -54,11 +54,11 @@ just reply that the question should be posted to the
 
 
 
-# Run LPWC
+# Running LPWC
 
-Prior to analyzing your data, the R package needs to be installed
+Prior to analyzing your data, the R package needs to be installed.
 
-Since, the data is not published to Bioconductor/CRAN. The best way to download the R package through Github
+Because the package is not yet published on Bioconductor or CRAN, the best way to download the R package is through GitHub.
 
 ```{r install, results='asis', eval=FALSE}
 library(devtools)
