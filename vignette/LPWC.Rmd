@@ -137,7 +137,9 @@ However, many clustering algorithms, such as hierarchical clustering, take dista
 We convert the similarities to distances by subtracting the similarity from 1.
 
 $$ -1\leq Corr \leq 1$$
+
 When we take Dist = 1- Corr
+
 $$ 0\leq Dist = (1- Corr) \leq 2$$
 
 
