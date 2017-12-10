@@ -1,6 +1,6 @@
 #' Weighted correlation
 #'
-#' This function computes weighted pearson correlation between two vectors with weights given. The ouput is between -1 and 1 with 1
+#' This function computes weighted pearson correlation between two vectors with weights given. The output is between -1 and 1 with 1
 #' being highly positive correlated, -1 with highly negative correlation and 0 being no correlation
 #'
 #' @param x a vector

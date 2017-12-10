@@ -1,6 +1,6 @@
 #' Best Lag
 #'
-#' This function computes the best lags for a datset using weighted correlation
+#' This function computes the best lags for a dataset using weighted correlation
 #'
 #' @param data a matrix with columns representing different timepoints
 #' @param max.lag a numeric value of the maximum lag allowed
