@@ -106,15 +106,17 @@ Our manuscript referenced above describes these parameters in more detail.
 **Max.lag:** The object **max.lag** should be a numerical output where the maximum lag is specified. This max.lag has to be less than the floor of length(timepoints) / 4.
 That is because longer lags lead to comparisons between two expression profiles that use less than half of the data points, which can lead to spurious correlations.
 
-
-**C:** The object **C** should be a numeric. This controls the width of the Gaussian kernel function used to penalize the lag and the weights in weighed correlation vector.
-
+**C:** The object **C** should be a numeric.
+This controls the width of the Gaussian kernel function used to penalize the lag and the weights in weighed correlation vector.
+The parameter **C** can be set automatically by setting **C** to the default NULL value and setting the **penalty** argument described below.
+If **C** is set to a specific value, the **penalty** is ignored.
 
 **penalty:** The object **penalty** only allows two values: "low" and "high".
-High  imposes a higher penalty on lags thus favoring grouping genes without introducing lags.
-The lower penalty leads to more lags in the clusters.
-The default is set to "high" penalty.
-
+It is used to automatically set the value of **C**.
+High imposes a higher penalty on lags thus favoring grouping genes without introducing lags.
+The lower penalty leads to more lagged genes in the clusters.
+The default is set to the "high" penalty.
+This argument is ignored if **C** is set to a specific value.
 
 **iter:** The object **iter** should be a numeric. This controls the number of values of C that should be tested when automatically setting the C parameter. The default is 10. Increasing iter increases computational time. This is only relevant for the low penalty because the high penalty have a fixed penalty.
 
