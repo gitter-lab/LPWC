@@ -28,6 +28,14 @@ findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
     vals <- c(vals, mean((timepoints[(i + 1):length(timepoints)] -
                                 timepoints[1:(length(timepoints) - i)])^2))
   }
-  vals <- - mean(vals) / log(penalty)
-  return(vals)
+  app <- - mean(vals) / log(penalty)
+  realC <- rep(NA, length(penalty))
+  for(b in 1:length(penalty)){
+    fun <- function(C) { mean(exp(- 1 / C * vals)) - penalty[b]}
+    realC[b] <- uniroot(f = fun, c(0, app[b]))$root
+  }
+  return(realC)
 }
+
+
+
