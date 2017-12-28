@@ -18,7 +18,7 @@ Installation
 The first major release of LPWC will be added to Bioconductor.
 Until then, the easiest way to install LPWC is as follows:
 ``` r
-devtools::install_github("https://github.com/gitter-lab/LPWC")
+devtools::install_github("gitter-lab/LPWC")
 ```
 
 Usage
