@@ -31,7 +31,7 @@ prep.data <- function(data, lags, timepoints){
     #positive lag
     else if(lags[i] < 0){
       new.data[i, ] <- c(data[i, (1 - lags[i]):(dim(data)[2])], rep(NA, -lags[i]))
-      new.time[i, ] <- c(timepoints[1:(dim(data)[2] + lags[i])], rep(NA, -lags[i]))
+      new.time[i, ] <- c(timepoints[(1 - lags[i]):(dim(data)[2])], rep(NA, -lags[i]))
     }
     #negative lag
     else if(lags[i] > 0){
