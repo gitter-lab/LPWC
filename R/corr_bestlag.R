@@ -8,7 +8,7 @@
 #' @param C a numeric value of C used in computing weighted correlation
 #' @param penalty a character with two levels high and low penalty on the weighted correlation
 #' @param iter an integer indicating numbers of C's to test for low penalty
-#' @return a list containing weighted correlation and best lags used in eacch row
+#' @return a list containing weighted correlation and best lags used in each row
 #'
 #' @example corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1, timepoints = c(0, 5, 10, 15, 20, 25), C = 10, penalty = "high")
 #'
@@ -29,7 +29,13 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,  is.numeric(iter),
             penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0)
   values <- findC(timepoints, max.lag, iter = iter)
-  if(penalty == "high" || is.numeric(C)){
+  if(is.numeric(C)){
+      lags <- best.lag(data, max.lag = max.lag, timepoints, C = C)
+      new.data <- prep.data(data, lags, timepoints)
+      return(list(corr = comp.corr(new.data$data, new.data$time, C = C), lags = lags,
+      C = C))
+  }
+  else if(penalty == "high"){
     lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[1])
     new.data <- prep.data(data, lags, timepoints)
     return(list(corr = comp.corr(new.data$data, new.data$time, C = values[1]), lags = lags,
