@@ -1,4 +1,4 @@
-# LPWC: Short Time Series Clustering Using Lag Penalized Weighted Correlation
+# LPWC: Lag Penalized Weighted Correlation for Time Series Clustering
 
 [![Build Status](https://travis-ci.org/gitter-lab/LPWC.svg?branch=master)](https://travis-ci.org/gitter-lab/LPWC)
 
@@ -24,3 +24,11 @@ devtools::install_github("gitter-lab/LPWC")
 Usage
 ------------
 See the [vignette](vignette/LPWC.Rmd) for usage instructions.
+
+Reference
+------------
+If you use LPWC, please cite
+
+Lag Penalized Weighted Correlation for Time Series Clustering.
+Thevaa Chandereng, Anthony Gitter.
+*bioRxiv* 2018. [doi:10.1101/292615](https://doi.org/10.1101/292615)
