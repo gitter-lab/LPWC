@@ -38,9 +38,9 @@ LPWC accommodates lags, allowing two entities (for example, genes) that exhibit 
 Lags are penalized using a Gaussian kernel so that synchronized temporal patterns are preferred over lagged patterns.
 Unlike many other clustering approaches, LPWC also accounts for irregular time sampling in which there are non-uniform intervals between timepoints.
 
+If you use LPWC in published research, please cite our preprint:
 
-If you use LPWC in published research, please cite our preprint, which will appear soon.
-
+Lag Penalized Weighted Correlation for Time Series Clustering. Thevaa Chandereng, Anthony Gitter. bioRxiv 2018. doi:10.1101/292615
 
 If after reading through this vignette you have questions or problems
 using LPWC, please post them to https://support.bioconductor.org and tag "LPWC".
