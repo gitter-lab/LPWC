@@ -1,2 +1,3 @@
 importFrom("stats", "as.dist", "cor", "cutree", "hclust")
 exportPattern("^[[:alpha:]]+")
+importFrom("stats", "uniroot")

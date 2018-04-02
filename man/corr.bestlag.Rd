@@ -21,7 +21,7 @@ corr.bestlag(data, timepoints, max.lag = NULL, C = NULL, penalty = "high",
 \item{iter}{an integer indicating numbers of C's to test for low penalty}
 }
 \value{
-a list containing weighted correlation and best lags used in eacch row
+a list containing weighted correlation and best lags used in each row
 }
 \description{
 This function computes correlation based on best picked lags. The lags indicate delayed changes.

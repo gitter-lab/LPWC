@@ -19,7 +19,7 @@ best.lag(data, timepoints, max.lag = NULL, C)
 a vector of best lags used in the dataset
 }
 \description{
-This function computes the best lags for a datset using weighted correlation
+This function computes the best lags for a dataset using weighted correlation
 }
 \author{
 Thevaa Chandereng, Anthony Gitter
