@@ -8,8 +8,8 @@
 #' @param w a vector with same length of x and y
 #' @return a numerical value of weighted pearson correlation
 #'
-#' @example
-#' wt.corr(c(1, 2, -9, 4, 5), c(2:6) c(0.5, 1, 2, 0.5, 2))
+#' @examples
+#' wt.corr(c(1, 2, -9, 4, 5), c(2:6), c(0.5, 1, 2, 0.5, 2))
 #'
 #' @source \url{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient#Weighted_correlation_coefficient}
 #'

@@ -6,7 +6,7 @@
 #' @param lags a vector of same length with corr and holds the lags corresponding to the corr vector
 #' @return a numerical value of best lag picked based on corr and lags
 #'
-#' @example score(runif(10, 0, 1), c(2, 0, 0, 0, 3, 2, -1, 2, 0, 1))
+#' @examples score(runif(10, 0, 1), c(2, 0, 0, 0, 3, 2, -1, 2, 0, 1))
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter

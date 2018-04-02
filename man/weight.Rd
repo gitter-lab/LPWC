@@ -19,6 +19,11 @@ a list containing w0 and vector w used in computing weighted correlation
 \description{
 This function computes the weight used for correlation using timepoints used and lags used
 }
+\examples{
+weight(t = c(0, 5, 10, 15, 20), lag = 1, C = 20)
+
+
+}
 \author{
 Thevaa Chandereng, Anthony Gitter
 }

@@ -7,8 +7,8 @@
 #' @param C a numeric value of C used in computing weighted correlation
 #' @return a simmilarity matrix with values between -1 and 1 (1 highly correlated, 0 no correlation )
 #'
-#' @example comp.corr(array(rnorm(40), c(5, 8)), time = c(0, 5, 10, 15, 20, 25, 30, 35), C = 10, lags = c(0, 1, -1, 1, 2))
-#'
+#' @examples
+#' comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25, 30, 35), c(8, 5))), C = 10)
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'

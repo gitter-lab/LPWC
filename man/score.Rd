@@ -17,6 +17,11 @@ a numerical value of best lag picked based on corr and lags
 \description{
 This function computes the score of best lags by summing the correlation of corresponding lags
 }
+\examples{
+score(runif(10, 0, 1), c(2, 0, 0, 0, 3, 2, -1, 2, 0, 1))
+
+
+}
 \author{
 Thevaa Chandereng, Anthony Gitter
 }

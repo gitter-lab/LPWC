@@ -8,7 +8,7 @@
 #' @param iter a numeric value with number of penalty
 #' @return a vector of length (10 or indicated by iter) different C to be tested
 #'
-#' @example findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
+#' @examples findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter

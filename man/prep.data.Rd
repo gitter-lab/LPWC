@@ -19,6 +19,11 @@ a list of two matrix, matrix with NA's for the lags for the dataset and timepoin
 \description{
 This function prepares the data to compute correlation by introducing NA's when lags are needed
 }
+\examples{
+prep.data(array(rnorm(20), c(5, 4)), c(0, 0, 0, -1, 1), timepoints = c(0, 5, 15, 30))
+
+
+}
 \author{
 Thevaa Chandereng, Anthony Gitter
 }

@@ -23,3 +23,7 @@ a numerical value of weighted pearson correlation
 This function computes weighted pearson correlation between two vectors with weights given. The output is between -1 and 1 with 1
 being highly positive correlated, -1 with highly negative correlation and 0 being no correlation
 }
+\examples{
+wt.corr(c(1, 2, -9, 4, 5), c(2:6), c(0.5, 1, 2, 0.5, 2))
+
+}

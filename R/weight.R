@@ -7,7 +7,7 @@
 #' @param C a numeric of the constant used in penalty and weight of correlation composed of gaussian kernel
 #' @return a list containing w0 and vector w used in computing weighted correlation
 #'
-#' @example weight(t = c(0, 5, 10, 15, 20), lag = 1, C = 20)
+#' @examples weight(t = c(0, 5, 10, 15, 20), lag = 1, C = 20)
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
