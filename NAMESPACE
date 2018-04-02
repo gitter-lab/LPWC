@@ -1,3 +1,2 @@
-importFrom("stats", "as.dist", "cor", "cutree", "hclust")
+importFrom("stats", "as.dist", "cor", "cutree", "hclust”, "uniroot")
 exportPattern("^[[:alpha:]]+")
-importFrom("stats", "uniroot")
