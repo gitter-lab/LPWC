@@ -9,7 +9,7 @@ score(corr, lags)
 \arguments{
 \item{corr}{a vector of computed correlation}
 
-\item{lags}{a vector of same length with corr and holds the lags corresponding to the corr vector}
+\item{lags}{a vector of same length with corr that holds the lags corresponding to the corr vector}
 }
 \value{
 a numerical value of best lag picked based on corr and lags

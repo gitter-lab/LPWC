@@ -7,20 +7,24 @@
 comp.corr(data, time, C)
 }
 \arguments{
-\item{data}{a matrix of data with the columns representing different timepoints (NA's added when lags are needed)}
+\item{data}{a matrix with rows representing genes and columns representing
+different timepoints (NA's added when lags are needed)}
 
 \item{time}{a vector which contains all the timepoints represented in the data}
 
 \item{C}{a numeric value of C used in computing weighted correlation}
 }
 \value{
-a simmilarity matrix with values between -1 and 1 (1 highly correlated, 0 no correlation )
+a simmilarity matrix with values between -1 and 1
+(1 highly correlated, 0 no correlation)
 }
 \description{
-This function computes the correlation upon picking the best lag and adjusting the data for lags
+This function computes the correlation upon picking the best lag and
+adjusting the data for lags
 }
 \examples{
-comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25, 30, 35), c(8, 5))), C = 10)
+comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25,
+30, 35), c(8, 5))), C = 10)
 
 }
 \author{

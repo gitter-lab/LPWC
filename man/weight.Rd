@@ -9,12 +9,12 @@ weight(t, lag, C)
 \arguments{
 \item{t}{a vector of timepoints}
 
-\item{lag}{a integer value of lag used}
+\item{lag}{a integer value of the lag used}
 
-\item{C}{a numeric of the constant used in penalty and weight of correlation composed of gaussian kernel}
+\item{C}{a numeric of the constant used in the penalty and weight inside the Gaussian kernel}
 }
 \value{
-a list containing w0 and vector w used in computing weighted correlation
+a list containing w0 and vector w used for computing weighted correlation
 }
 \description{
 This function computes the weight used for correlation using timepoints used and lags used

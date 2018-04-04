@@ -9,7 +9,8 @@ findC(timepoints, max.lag = NULL, pi = 0.95, iter = 10)
 \arguments{
 \item{timepoints}{a vector of timepoints used in the dataset}
 
-\item{max.lag}{a numeric value with maximum lags allowed}
+\item{max.lag}{a numeric value with maximum lags allowed,
+if null, defaults to the floor of the number of timepoints divided by 4}
 
 \item{pi}{a numeric value between 0.5 and 1 for the upper bound on the penalty}
 

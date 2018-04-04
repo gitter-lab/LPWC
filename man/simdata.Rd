@@ -10,6 +10,7 @@ simdata
 }
 \description{
 Data is simulated from ImpulseDE function with 8 timepoints c(0, 2, 4, 6, 8, 18, 24, 32, 48, 72)
+See https://doi.org/10.1093/bioinformatics/btw665
 }
 \examples{
 data(simdata)

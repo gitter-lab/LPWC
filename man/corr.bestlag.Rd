@@ -8,17 +8,19 @@ corr.bestlag(data, timepoints, max.lag = NULL, C = NULL, penalty = "high",
   iter = 10)
 }
 \arguments{
-\item{data}{a matrix with columns representing different timepoints}
+\item{data}{a matrix with rows representing genes and columns representing different timepoints}
 
 \item{timepoints}{a vector of time points used in the dataset}
 
-\item{max.lag}{a integer value of the maximum lags allowed in the dataset}
+\item{max.lag}{a integer value of the maximum lags allowed in the dataset,
+if null, defaults to the floor of the number of timepoints divided by 4}
 
-\item{C}{a numeric value of C used in computing weighted correlation}
+\item{C}{a numeric value of C used in computing weighted correlation,
+if null, a default is computed based on the penalty argument}
 
-\item{penalty}{a character with two levels high and low penalty on the weighted correlation}
+\item{penalty}{a factor with two levels high and low penalty on the weighted correlation}
 
-\item{iter}{an integer indicating numbers of C's to test for low penalty}
+\item{iter}{an integer indicating the number of C values to test for low penalty}
 }
 \value{
 a list containing weighted correlation and best lags used in each row
@@ -27,7 +29,8 @@ a list containing weighted correlation and best lags used in each row
 This function computes correlation based on best picked lags. The lags indicate delayed changes.
 }
 \examples{
-corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1, timepoints = c(0, 5, 10, 15, 20, 25), C = 10, penalty = "high")
+corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1,
+          timepoints = c(0, 5, 10, 15, 20, 25), C = 10, penalty = "high")
 
 
 }

@@ -15,7 +15,7 @@ weight.lag(x1, x2)
 a matrix with two rows with the shortest length of the vector as the number of columns
 }
 \description{
-This function matches vector of two different lengths
+This function matches vectors of two different lengths
 }
 \examples{
 weight.lag(1:5, 2:9)
