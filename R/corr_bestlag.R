@@ -12,8 +12,9 @@
 #' @param iter an integer indicating the number of C values to test for low penalty
 #' @return a list containing weighted correlation and best lags used in each row
 #'
-#' @examples corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1,
-#'           timepoints = c(0, 5, 10, 15, 20, 25), C = 10, penalty = "high")
+#' @examples
+#' times <- c(0, 5, 10, 15, 20, 25)
+#' corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1, timepoints = times, C = 10, penalty = "high")
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter

@@ -11,8 +11,8 @@
 #' (1 highly correlated, 0 no correlation)
 #'
 #' @examples
-#' comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25,
-#' 30, 35), c(8, 5))), C = 10)
+#' timepoints <- t(array(c(0, 5, 10, 15, 20, 25, 30, 35), c(8, 5)))
+#' comp.corr(array(rnorm(40), c(5, 8)), time = timepoints, C = 10)
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
