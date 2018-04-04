@@ -1,6 +1,6 @@
 #' Weight Lag
 #'
-#' This function matches vector of two different lengths
+#' This function matches vectors of two different lengths
 #'
 #' @param x1 a vector
 #' @param x2 a vector

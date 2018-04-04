@@ -3,9 +3,9 @@
 #' This function computes the weight used for correlation using timepoints used and lags used
 #'
 #' @param t a vector of timepoints
-#' @param lag a integer value of lag used
-#' @param C a numeric of the constant used in penalty and weight of correlation composed of gaussian kernel
-#' @return a list containing w0 and vector w used in computing weighted correlation
+#' @param lag a integer value of the lag used
+#' @param C a numeric of the constant used in the penalty and weight inside the Gaussian kernel
+#' @return a list containing w0 and vector w used for computing weighted correlation
 #'
 #' @examples weight(t = c(0, 5, 10, 15, 20), lag = 1, C = 20)
 #'
