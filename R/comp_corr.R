@@ -1,14 +1,18 @@
 #' Computing corr
 #'
-#' This function computes the correlation upon picking the best lag and adjusting the data for lags
+#' This function computes the correlation upon picking the best lag and
+#' adjusting the data for lags
 #'
-#' @param data a matrix with rows representing genes and columns representing different timepoints (NA's added when lags are needed)
+#' @param data a matrix with rows representing genes and columns representing
+#' different timepoints (NA's added when lags are needed)
 #' @param time a vector which contains all the timepoints represented in the data
 #' @param C a numeric value of C used in computing weighted correlation
-#' @return a simmilarity matrix with values between -1 and 1 (1 highly correlated, 0 no correlation)
+#' @return a simmilarity matrix with values between -1 and 1
+#' (1 highly correlated, 0 no correlation)
 #'
 #' @examples
-#' comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25, 30, 35), c(8, 5))), C = 10)
+#' comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25,
+#' 30, 35), c(8, 5))), C = 10)
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'

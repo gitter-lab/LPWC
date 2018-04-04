@@ -3,7 +3,8 @@
 #' This function computes the best C using the timepoints and max lag in the dataset
 #'
 #' @param timepoints a vector of timepoints used in the dataset
-#' @param max.lag a numeric value with maximum lags allowed, if null, defaults to the floor of the number of timepoints divided by 4
+#' @param max.lag a numeric value with maximum lags allowed,
+#' if null, defaults to the floor of the number of timepoints divided by 4
 #' @param pi a numeric value between 0.5 and 1 for the upper bound on the penalty
 #' @param iter a numeric value with number of penalty
 #' @return a vector of length (10 or indicated by iter) different C to be tested

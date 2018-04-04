@@ -3,14 +3,17 @@
 #' This function computes correlation based on best picked lags. The lags indicate delayed changes.
 #'
 #' @param data a matrix with rows representing genes and columns representing different timepoints
-#' @param max.lag a integer value of the maximum lags allowed in the dataset, if null, defaults to the floor of the number of timepoints divided by 4
+#' @param max.lag a integer value of the maximum lags allowed in the dataset,
+#' if null, defaults to the floor of the number of timepoints divided by 4
 #' @param timepoints a vector of time points used in the dataset
-#' @param C a numeric value of C used in computing weighted correlation, if null, a default is computed based on the penalty argument
+#' @param C a numeric value of C used in computing weighted correlation,
+#' if null, a default is computed based on the penalty argument
 #' @param penalty a factor with two levels high and low penalty on the weighted correlation
 #' @param iter an integer indicating the number of C values to test for low penalty
 #' @return a list containing weighted correlation and best lags used in each row
 #'
-#' @examples corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1, timepoints = c(0, 5, 10, 15, 20, 25), C = 10, penalty = "high")
+#' @examples corr.bestlag(array(rnorm(30), c(5, 6)), max.lag = 1,
+#'           timepoints = c(0, 5, 10, 15, 20, 25), C = 10, penalty = "high")
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
