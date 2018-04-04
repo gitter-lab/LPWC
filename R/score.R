@@ -3,7 +3,7 @@
 #' This function computes the score of best lags by summing the correlation of corresponding lags
 #'
 #' @param corr a vector of computed correlation
-#' @param lags a vector of same length with corr and holds the lags corresponding to the corr vector
+#' @param lags a vector of same length with corr that holds the lags corresponding to the corr vector
 #' @return a numerical value of best lag picked based on corr and lags
 #'
 #' @examples score(runif(10, 0, 1), c(2, 0, 0, 0, 3, 2, -1, 2, 0, 1))

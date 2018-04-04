@@ -2,10 +2,10 @@
 #'
 #' This function prepares the data to compute correlation by introducing NA's when lags are needed
 #'
-#' @param data a matrix with columns representing different timepoints
+#' @param data a matrix with rows representing genes and columns representing different timepoints
 #' @param lags a vector of same length as the number of rows in the data column indicating the best lags
 #' @param timepoints a vector of time points used in the dataset
-#' @return a list of two matrix, matrix with NA's for the lags for the dataset and timepoints used for each row in the dataset
+#' @return a list of two matrices, one matrix with NA's for the lags for the dataset and another matrix with the timepoints used for each row in the dataset
 #'
 #' @examples prep.data(array(rnorm(20), c(5, 4)), c(0, 0, 0, -1, 1), timepoints = c(0, 5, 15, 30))
 #'
