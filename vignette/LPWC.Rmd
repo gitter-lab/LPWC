@@ -92,7 +92,7 @@ str(simdata)
 
 
 
-**Timepoints:** The object **timepoints** should be a vector of timepoints when data was collected.
+**Timepoints:** The object **timepoints** should be a vector of timepoints that specify when the data were collected.
 This should match the column length in **Data**. This can be in any form (seconds, minutes, hours, or even days), but make sure the units are uniform throughout.
 
 The timepoints used in **Data** are
