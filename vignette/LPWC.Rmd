@@ -196,7 +196,7 @@ sessionInfo()
 
 # FAQ
 
-- How can I speed up LPWC's selection of the C parameter for the low penalty with a large dataset?
+- How can I speed up LPWC for the low penalty with a large dataset?
 
 We recommend parallelizing parts of the analysis, as shown below:
 
