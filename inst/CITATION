@@ -13,7 +13,7 @@ citEntry(entry = "Article",
   textVersion  =
   paste("Thevaa Chandereng, Anthony Gitter (2018).",
         "Lag Penalized Weighted Correlation for Time Series Clustering.",
-        "bioRxiv, 292615.”,
+        "bioRxiv, 292615.",
         "URL https://doi.org/10.1101/292615.")
 )
 
