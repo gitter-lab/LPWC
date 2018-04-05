@@ -15,7 +15,7 @@ LPWC also supports irregular time intervals between time points collected in bio
 
 Installation
 ------------
-The first major release of LPWC will be added to Bioconductor.
+The first major release of LPWC will be added to CRAN.
 Until then, the easiest way to install LPWC is as follows:
 ``` r
 devtools::install_github("gitter-lab/LPWC")
