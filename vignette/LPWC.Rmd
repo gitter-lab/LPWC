@@ -44,13 +44,13 @@ If you use LPWC in published research, please cite our preprint:
 Lag Penalized Weighted Correlation for Time Series Clustering. Thevaa Chandereng, Anthony Gitter. bioRxiv 2018. [doi:10.1101/292615](https://doi.org/10.1101/292615)
 
 If after reading through this vignette you have questions or problems
-using LPWC, please post them to https://support.bioconductor.org and tag "LPWC".
+using LPWC, please post them to https://github.com/gitter-lab/LPWC/issues.
 This will notify the package maintainers and benefit other users.
 
 
 You should **not** email your question to the package authors, as we will
 just reply that the question should be posted to the
-**Bioconductor support site**.
+**Github support site**.
 
 
 
