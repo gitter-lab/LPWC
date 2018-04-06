@@ -1,28 +1,17 @@
 ---
 title: "LPWC: Lag Penalized Weighted Correlation for Clustering Short Time Series"
 author: "Thevaa Chandereng & Anthony Gitter"
-date: "`r BiocStyle::doc_date()`"
-package: "`r BiocStyle::2'"
-abstract: >
-
-
-output:
-  rmarkdown::html_document:
-    highlight: pygments
-    toc: true
-    toc_float: true
-    fig_width: 5
-    number_sections: true
+output: rmarkdown::html_vignette
 vignette: >
+  %\VignetteIndexEntry{Do more with dates and times in R}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 
+
 ```{r setup, echo=FALSE, results="hide"}
-knitr::opts_chunk$set(tidy=FALSE, cache=TRUE,
-                      dev="png",
-                      message=FALSE, error=FALSE, warning=TRUE)
+knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 ```
 
 
