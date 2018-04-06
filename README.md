@@ -32,3 +32,7 @@ If you use LPWC, please cite
 Lag Penalized Weighted Correlation for Time Series Clustering.
 Thevaa Chandereng, Anthony Gitter.
 *bioRxiv* 2018. [doi:10.1101/292615](https://doi.org/10.1101/292615)
+
+License
+------------
+LPWC is available under the open source [MIT license](http://opensource.org/licenses/MIT).
