@@ -3,7 +3,7 @@ title: "LPWC: Lag Penalized Weighted Correlation for Clustering Short Time Serie
 author: "Thevaa Chandereng & Anthony Gitter"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Do more with dates and times in R}
+  %\VignetteIndexEntry{Cluster time series data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -126,7 +126,6 @@ An example output of LPWC for 10 genes using high penalty follows:
 
 
 ```{r}
-
 LPWC::corr.bestlag(simdata[49:58, ], timepoints = timepoints, max.lag = 2, penalty = "high", iter = 10)
 ```
 
@@ -148,7 +147,7 @@ A standard similarity-based clustering algorithm such as hierarchical clustering
 
 An example for 10 genes:
 
-```{r clust1}
+```{r clust1, fig.width=5}
 dist <- 1 - LPWC::corr.bestlag(simdata[11:20, ], timepoints = timepoints, max.lag = 2, penalty = "low", iter = 10)$corr
 plot(hclust(dist))
 ```
