@@ -9,6 +9,7 @@ citEntry(entry = "Article",
   pages        = "292615",
   url          = "https://doi.org/10.1101/292615",
   publisher    = "Cold Spring Harbor Laboratory",
+  doi          = "10.1101/292615”,
 
   textVersion  =
   paste("Thevaa Chandereng, Anthony Gitter (2018).",
