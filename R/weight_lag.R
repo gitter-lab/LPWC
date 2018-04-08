@@ -16,12 +16,15 @@
 
 
 weight.lag <- function(x1, x2){
+  #checking if all the values are numeric
   stopifnot(all(is.numeric(x1)), all(is.numeric(x2)))
+  #picking the shortest vector and making the other vector shorter
   if(length(x1) < length(x2)){
     x2 <- x2[1:length(x1)]
   }
   else{
     x1 <- x1[1:length(x2)]
   }
+  #returning the shortest vector of both vector
   return(as.matrix(rbind(x1, x2)))
 }
