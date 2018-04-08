@@ -21,11 +21,14 @@
 
 
 prep.data <- function(data, lags, timepoints){
+  #checking all the conditions
   stopifnot(dim(data)[1] == length(lags), is.vector(lags), all(is.numeric(lags)),
             all(abs(lags) <= length(timepoints) / 4), dim(data)[2] == length(timepoints),
             is.vector(timepoints))
+  #new matrix for data and time to incorporate lags
   new.data <- array(NA, dim(data))
   new.time <- array(NA, dim(data))
+  #going through rows and adding the data with lags
   for(i in 1:dim(data)[1]){
     #given no lag
     if(lags[i] == 0){
@@ -46,5 +49,6 @@ prep.data <- function(data, lags, timepoints){
       print("There is an error in best lags!")
     }
   }
+  #return a list of lag timepoints and data
   return(list(data = new.data, time = new.time))
 }
