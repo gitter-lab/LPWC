@@ -25,25 +25,31 @@
 
 
 corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "high", iter = 10){
+  #fixing the max lag if it is NULL
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
   data <- as.matrix(data)
+  #checking the condition
   stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,  is.numeric(iter),
             penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0)
+  #finding the values of C
   values <- findC(timepoints, max.lag, iter = iter)
+  #if C is already given, the matrix is computed based on that value
   if(is.numeric(C)){
       lags <- best.lag(data, max.lag = max.lag, timepoints, C = C)
       new.data <- prep.data(data, lags, timepoints)
       return(list(corr = comp.corr(new.data$data, new.data$time, C = C), lags = lags,
       C = C))
   }
+  # if C is not given but penalty is high, the matrix is computed based on first C value from values
   else if(penalty == "high"){
     lags <- best.lag(data, max.lag = max.lag, timepoints, C = values[1])
     new.data <- prep.data(data, lags, timepoints)
     return(list(corr = comp.corr(new.data$data, new.data$time, C = values[1]), lags = lags,
                 C = values[1]))
   }
+  #if penalty is low, the matrix is computed for all 10 values in values vector
   else if(penalty == "low"){
     clustdiff <- rep(NA, length(values) - 1)
     allcorr <- NULL
@@ -55,9 +61,11 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
       allcorr[[v]] <- result$corr
       alllags[[v]] <- result$lags
     }
+    # the adjacent similarity matrix
     for(j in 1:(length(values) - 1)){
       clustdiff[j] <- sum((as.vector(allcorr[[j + 1]]) - as.vector(allcorr[[j]]))^2)
     }
+    #the best C matrix is picked based on the smallest different with the adjacent similarity matrix
     return(list(corr = allcorr[[which.min(clustdiff) + 1]], lags = alllags[[which.min(clustdiff) + 1]],
                 C = values[which.min(clustdiff) + 1] ))
   }

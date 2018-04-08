@@ -20,16 +20,23 @@
 
 
 comp.corr <- function(data, time, C){
+  #checking for all the conditions with data, time and C
   stopifnot(all(dim(data) == dim(time)), is.numeric(C))
+  #checking an empty matrix to store the correlation values
   corr <- array(NA, c(dim(data)[1], dim(data)[1]))
+  #iterating through each i and j to print the correlation value
   for(j in 1:(dim(data)[1] - 1)){
     for(i in (j + 1):dim(data)[1]){
+      #alligning the peptides and timepoints
       pair <- weight.lag(data[i, !is.na(data[i, ])], data[j, !is.na(data[j, ])])
       times <- weight.lag(time[i, !is.na(time[i, ])], time[j, !is.na(time[j, ])])
+      #computing w0 and w from the alliged timepoints
       weights <- apply(times, 2, function(x){(diff(x)) ^ 2})
+      #computing correlation from the values
       corr[i, j] <- exp(-1 / C * mean(weights)) * wt.corr(pair[1, ], pair[2, ], exp(-1 / C * weights))
     }
   }
+  #picking the correlation matrix
   return(as.dist(corr))
 }
 

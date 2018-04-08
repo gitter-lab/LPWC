@@ -19,22 +19,29 @@
 
 
 findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
+  #if lags are not provided, lags are assigned to floor of length(timepoints) / 4
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
+  #checking through all the conditions
   stopifnot(all(is.numeric(timepoints)), max.lag <= length(timepoints) / 4, max.lag %% 1 == 0)
-  penalty <- seq(0.5, 0.95, length.out = iter)
+  #running through the penalty for different iterations and pi's
+  penalty <- seq(0.5, pi, length.out = iter)
   vals <- NULL
+  #finding the mean difference in timepoints with different lags
   for(i in 1:max.lag){
     vals <- c(vals, mean((timepoints[(i + 1):length(timepoints)] -
                                 timepoints[1:(length(timepoints) - i)])^2))
   }
+  #taking the mean over the log penalty
   app <- - mean(vals) / log(penalty)
   realC <- rep(NA, length(penalty))
+  #solving the root euqations for the summation
   for(b in 1:length(penalty)){
     fun <- function(C) { mean(exp(- 1 / C * vals)) - penalty[b]}
     realC[b] <- uniroot(f = fun, c(0, app[b]))$root
   }
+  #printing different C for different penalty values
   return(realC)
 }
 
