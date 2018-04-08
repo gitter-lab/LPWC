@@ -15,10 +15,16 @@
 #'
 
 
+#computing weights for inside the weighted correlation and outside penalty function
 weight <- function(t, lag, C){
+  #checking if all the variables are right
   stopifnot(length(t)/4 >= lag, is.numeric(C), all(is.numeric(t)), is.numeric(lag))
+  #creating two rows with lagged timepoints
   tlag <- rbind(t[(lag + 1):length(t)], t[1:(length(t) - lag)])
+  # w0 is the outside penalty function
   w0 <- exp(-1 / C * mean(apply(tlag, 2, function(x){(diff(x))^2})))
+  # w is the inside weight function in the weighted correlation
   w <- exp(-1 / C * apply(tlag, 2, function(x){(diff(x))^2}))
+  #returning a list of inside and outside weights
   return(list(w = w, w0 = w0))
 }
