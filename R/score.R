@@ -15,13 +15,17 @@
 
 
 score <- function(corr, lags){
+  #checking the corr and lags vector
   stopifnot(length(corr) == length(lags), all(is.numeric(corr)), all(is.numeric(lags)))
-  alags <- sort(unique(lags))
-  value <- rep(NA, length(alags))
-  for(i in seq(alags)){
-    value[i] <- sum(corr[lags == alags[i]])
+  #taking unique lags and sorting them
+  uni.lags <- sort(unique(lags))
+  value <- rep(NA, length(uni.lags))
+  #assigning score for each lag vector
+  for(i in seq(uni.lags)){
+    value[i] <- sum(corr[lags == uni.lags[i]])
   }
-  return(alags[which.max(value)])
+  #printing thelag with max score
+  return(uni.lags[which.max(value)])
 }
 
 
