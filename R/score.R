@@ -24,7 +24,7 @@ score <- function(corr, lags){
   for(i in seq(uni.lags)){
     value[i] <- sum(corr[lags == uni.lags[i]])
   }
-  #printing thelag with max score
+  #printing the lag with max score
   return(uni.lags[which.max(value)])
 }
 
