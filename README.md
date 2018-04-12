@@ -17,9 +17,20 @@ Installation
 ------------
 The first major release of LPWC will be added to CRAN.
 Until then, the easiest way to install LPWC is as follows:
+
 ``` r
+
+
+``` r
+library(devtools)
 devtools::install_github("gitter-lab/LPWC")
-```
+``
+
+After successful installation, the package must be loaded into the working space:
+
+``` r 
+library(LPWC)
+``
 
 Usage
 ------------
