@@ -22,7 +22,7 @@
 comp.corr <- function(data, time, C){
   #checking for all the conditions with data, time and C
   stopifnot(all(dim(data) == dim(time)), is.numeric(C))
-  #checking an empty matrix to store the correlation values
+  #creating an empty matrix to store the correlation values
   corr <- array(NA, c(dim(data)[1], dim(data)[1]))
   #iterating through each i and j to print the correlation value
   for(j in 1:(dim(data)[1] - 1)){
