@@ -48,7 +48,7 @@ library(LPWC)
 
 Usage
 ------------
-See the [vignette](vignette/LPWC.Rmd) for usage instructions.
+See the vignette for usage instructions.
 
 Reference
 ------------
