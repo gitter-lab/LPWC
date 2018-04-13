@@ -29,14 +29,12 @@ The first option is most useful if want to download a specific version of LPWC
 ``` r 
 devtools::install_github("gitter-lab/LPWC@vx.xx.x")
 # OR 
-library(devtools)
-install_version("LPWC", version = "x.x.x", repos = "http://cran.us.r-project.org")
+devtools::install_version("LPWC", version = "x.x.x", repos = "http://cran.us.r-project.org")
 ```
 
 The second option is to download through GitHub. 
 
 ``` r
-library(devtools)
 devtools::install_github("gitter-lab/LPWC")
 ```
 
