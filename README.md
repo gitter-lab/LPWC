@@ -16,15 +16,38 @@ LPWC also supports irregular time intervals between time points collected in bio
 
 Installation
 ------------
-The first major release of LPWC will be added to CRAN.
-Until then, the easiest way to install LPWC is as follows:
+Prior to analyzing your data, the R package needs to be installed.
+
+The easiest way to install LPWC is through CRAN:
+
+``` r
+install.packages("LPWC")
+```
+
+There are other additional ways to download LPWC.
+The first option is most useful if want to download a specific version of LPWC
+(which can be found at https://github.com/gitter-lab/LPWC/releases).
+``` r 
+devtools::install_github("gitter-lab/LPWC@vx.xx.x")
+# OR 
+devtools::install_version("LPWC", version = "x.x.x", repos = "http://cran.us.r-project.org")
+```
+
+The second option is to download through GitHub. 
+
 ``` r
 devtools::install_github("gitter-lab/LPWC")
 ```
 
+After successful installation, the package must be loaded into the working space:
+
+``` r 
+library(LPWC)
+```
+
 Usage
 ------------
-See the [vignette](vignette/LPWC.Rmd) for usage instructions.
+See the vignette for usage instructions.
 
 Reference
 ------------
