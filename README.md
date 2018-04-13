@@ -17,35 +17,34 @@ Installation
 ------------
 Prior to analyzing your data, the R package needs to be installed.
 
-The easiest way to install LPWC is through R:
+The easiest way to install LPWC is through CRAN:
 
 ``` r
 install.packages("LPWC")
-``
+```
 
 There are other additional ways to download LPWC.
-The first option is most useful if using a previous versions of LPWC
+The first option is most useful if want to download a specific version of LPWC
 (which can be found at https://github.com/gitter-lab/LPWC/releases).
-
 ``` r 
 devtools::install_github("gitter-lab/LPWC@vx.xx.x")
 # OR 
 library(devtools)
 install_version("LPWC", version = "x.x.x", repos = "http://cran.us.r-project.org")
-``
+```
 
-The third option is to download through GitHub. 
+The second option is to download through GitHub. 
 
 ``` r
 library(devtools)
 devtools::install_github("gitter-lab/LPWC")
-``
+```
 
 After successful installation, the package must be loaded into the working space:
 
 ``` r 
 library(LPWC)
-``
+```
 
 Usage
 ------------
