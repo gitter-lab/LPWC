@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gitter-lab/LPWC.svg?branch=master)](https://travis-ci.org/gitter-lab/LPWC)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/LPWC)](https://cran.r-project.org/package=LPWC)
+[![Download badge](https://cranlogs.r-pkg.org/badges/LPWC)](https://cran.r-project.org/package=LPWC)
 
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
