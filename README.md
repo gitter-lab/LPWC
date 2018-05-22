@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/gitter-lab/LPWC.svg?branch=master)](https://travis-ci.org/gitter-lab/LPWC)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/LPWC)](https://cran.r-project.org/package=LPWC)
 [![Download badge](https://cranlogs.r-pkg.org/badges/LPWC)](https://cran.r-project.org/package=LPWC)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
