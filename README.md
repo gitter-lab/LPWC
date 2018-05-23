@@ -5,6 +5,7 @@
 [![Download badge](https://cranlogs.r-pkg.org/badges/LPWC)](https://cran.r-project.org/package=LPWC)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/thevaachandereng/LPWC/branch/master/graph/badge.svg)](https://codecov.io/gh/thevaachandereng/LPWC)
+[![Build status](https://ci.appveyor.com/api/projects/status/j10kp0s5sai0uus4?svg=true)](https://ci.appveyor.com/project/thevaachandereng/lpwc)
 
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
