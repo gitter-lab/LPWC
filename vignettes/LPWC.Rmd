@@ -80,7 +80,7 @@ library(LPWC)
 
 ## Required input
 
-**Data :**  Input to LPWC is a matrix.
+**Data:**  Input to LPWC is a matrix.
 We assume here that it is a gene expression matrix, but other data types are suitable as well.
 The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints.
 
@@ -100,7 +100,7 @@ str(simdata)
 **Timepoints:** The object **timepoints** should be a vector of timepoints that specify when the data were collected.
 This should match the column length in **Data**. This can be in any form (seconds, minutes, hours, or even days), but make sure the units are uniform throughout.
 
-The timepoints used in **Data** are
+The timepoints used in the example **simdata** are
 ```{r time}
 timepoints <- c(0, 2, 4, 6, 8, 18, 24, 32, 48, 72)
 timepoints
