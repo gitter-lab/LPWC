@@ -1,9 +1,10 @@
 #' Computing corr
 #'
-#' This function computes the correlation upon picking the best lag and
-#' adjusting the data for lags
+#' This function computes the weighted correlation with penalty (no penalty if not lagged) after the lags
+#' applied to the dataset and timepoints using prep.data() and best.lag() function.
 #'
-#' @param data a matrix with rows representing genes and columns representing
+#'
+#' @param data a lagged matrix with rows representing genes and columns representing
 #' different timepoints (NA's added when lags are needed)
 #' @param time a vector which contains all the timepoints represented in the data
 #' @param C a numeric value of C used in computing weighted correlation
