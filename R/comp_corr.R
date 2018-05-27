@@ -6,7 +6,7 @@
 #'
 #' @param data a lagged matrix with rows representing genes and columns representing
 #' different timepoints (NA's added when lags are needed)
-#' @param time a vector which contains all the timepoints represented in the data
+#' @param time a lagged matrix which contains all the timepoints represented in the data, NA is introduced when it is lagged
 #' @param C a numeric value of C used in computing weighted correlation
 #' @return a simmilarity matrix with values between -1 and 1
 #' (1 highly correlated, 0 no correlation)
