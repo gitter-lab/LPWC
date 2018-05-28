@@ -1,6 +1,6 @@
 Package: LPWC
 Version: 0.99.3
-Date: 2018-03-31
+Date: 2018-05-28
 Title: Lag Penalized Weighted Correlation for Time Series Clustering
 Author: Thevaa Chandereng <chandereng@wisc.edu>, Anthony Gitter
 Maintainer: Thevaa Chandereng <chandereng@wisc.edu>
