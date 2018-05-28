@@ -135,7 +135,7 @@ This is only relevant for the low penalty because the high penalty uses a single
 
 ## Obtaining gene-gene similarities
 
-LPWC computes similarity (an adjusted weighted correlation) between genes and returns three outputs: correlation of genes in dist form (see as.dist), the best lag used for each gene, and the C used.
+LPWC computes similarity (an adjusted weighted correlation) between genes and returns three outputs: correlation of genes in dist form (see as.dist), the best lag used for each gene, and the C used. The lags introduced are in reference to the original time points (i.e. lag of 0). 
 
 
 An example output of LPWC for 10 genes using high penalty follows:
