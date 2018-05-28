@@ -1,7 +1,7 @@
 #' Computing corr
 #'
-#' This function computes the weighted correlation with penalty (no penalty if not lagged) after the lags
-#' applied to the dataset and timepoints using prep.data() and best.lag() function.
+#' This function computes the weighted correlation with penalty (no penalty if not lagged) after the lags are applied
+#' to the dataset and timepoints using the functions prep.data() and best.lag() function.
 #'
 #'
 #' @param data a lagged matrix with rows representing genes and columns representing
