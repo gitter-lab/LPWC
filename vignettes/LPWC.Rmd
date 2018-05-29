@@ -132,6 +132,46 @@ The default is 10.
 Increasing iter increases computational time.
 This is only relevant for the low penalty because the high penalty uses a single C instead of searching over multiple C.
 
+## Interpreting lags
+
+
+```{r, echo = FALSE, fig.height = 5, fig.width=4, warning = FALSE}
+library(ggplot2)
+library(gridExtra)
+
+set.seed(29876)
+
+
+a <- rbind(c(rep(0, 5), 8, 0), c(rep(0, 4), 4.3, 0, 0)) + rnorm(2, 0, 0.5)
+
+dat <- data.frame(intensity = as.vector(a), time = rep(c(0, 5, 15, 30, 45, 60, 75), each = 2), genes = factor(rep(c(1, 2), 7)))
+
+a2 <- a
+a2[1, ] <- c(a2[1, 2:7], NA)
+dat2 <- data.frame(intensity = as.vector(a2), time = rep(c(0, 5, 15, 30, 45, 60, 75), each = 2), genes = factor(rep(c(1, 2), 7)))
+
+a3 <- a
+a3[2, ] <- c(NA, a3[2, 1:6])
+a3[1, ] <- c(a3[1, 2:7], NA)
+dat3 <- data.frame(intensity = as.vector(a3), time = rep(c(0, 5, 15, 30, 45, 60, 75), each = 2), genes = factor(rep(c(1, 2), 7)))
+
+
+plot1 <- ggplot(dat, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
+  labs(x = "Time (min)") + labs(y = "Intensity") 
+plot2 <- ggplot(dat2, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
+  labs(x = "Time (min)") + labs(y = "Intensity") 
+plot3 <- ggplot(dat3, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
+  labs(x = "Time (min)") + labs(y = "Intensity") 
+grid.arrange(plot1, plot2, plot3, ncol = 1)
+
+
+m <- matrix(0, ncol = 30, nrow = 2)
+print(m)
+
+
+```
+
+
 
 ## Obtaining gene-gene similarities
 
