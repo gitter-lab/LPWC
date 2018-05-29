@@ -19,8 +19,9 @@ a simmilarity matrix with values between -1 and 1
 (1 highly correlated, 0 no correlation)
 }
 \description{
-This function computes the weighted correlation with penalty (no penalty if not lagged) after the lags are applied
-to the dataset and timepoints using the functions prep.data() and best.lag() function.
+This function computes the weighted correlation with a penalty for lags.
+It should only be used after the fixed lags have already been applied to the dataset and timepoints using the functions
+prep.data() and best.lag().
 }
 \examples{
 comp.corr(array(rnorm(40), c(5, 8)), time = t(array(c(0, 5, 10, 15, 20, 25,

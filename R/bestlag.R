@@ -1,6 +1,7 @@
 #' Best Lag
 #'
-#' This function computes the best lags for a dataset using weighted correlation. The lags obtained are in reference to the original timepoints.  
+#' This function computes the best lags for a dataset using weighted correlation.
+#' The lags obtained are in reference to the original timepoints.
 #'
 #' @param data a matrix with rows representing genes and columns
 #' representing different timepoints
