@@ -5,7 +5,7 @@ Title: Lag Penalized Weighted Correlation for Time Series Clustering
 Author: Thevaa Chandereng <chandereng@wisc.edu>, Anthony Gitter
 Maintainer: Thevaa Chandereng <chandereng@wisc.edu>
 Description: Computes a time series distance measure for clustering based on weighted correlation and introduction of lags. The lags capture delayed responses in a time series dataset. The timepoints must be specified. T. Chandereng, A. Gitter (2018) <doi:10.1101/292615>.
-Depends: 
+Depends:
     R (>= 3.0.2)
 Suggests: testthat, knitr, rmarkdown
 License: MIT + file LICENSE
@@ -15,3 +15,5 @@ RoxygenNote: 6.0.1
 VignetteBuilder: knitr 
 URL: https://github.com/gitter-lab/LPWC
 BugReports: https://github.com/gitter-lab/LPWC/issues
+Imports: ggplot2,
+    gridExtra
