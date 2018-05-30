@@ -137,7 +137,6 @@ This is only relevant for the low penalty because the high penalty uses a single
 
 ```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE}
 library(ggplot2)
-library(gridExtra)
 
 set.seed(29876)
 
