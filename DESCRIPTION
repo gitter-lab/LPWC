@@ -15,5 +15,4 @@ RoxygenNote: 6.0.1
 VignetteBuilder: knitr 
 URL: https://github.com/gitter-lab/LPWC
 BugReports: https://github.com/gitter-lab/LPWC/issues
-Imports: ggplot2,
-    gridExtra
+Imports: ggplot2
