@@ -21,7 +21,8 @@ defaults to the floor of the number of timepoints divided by 4}
 a vector of best lags used in the dataset, one per gene
 }
 \description{
-This function computes the best lags for a dataset using weighted correlation
+This function computes the best lags for a dataset using weighted correlation.
+The lags obtained are in reference to the original timepoints.
 }
 \author{
 Thevaa Chandereng, Anthony Gitter

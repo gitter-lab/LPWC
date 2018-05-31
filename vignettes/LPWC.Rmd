@@ -132,10 +132,78 @@ The default is 10.
 Increasing iter increases computational time.
 This is only relevant for the low penalty because the high penalty uses a single C instead of searching over multiple C.
 
+## Interpreting lags
+
+Lags are taken with respect to the original timepoints vector.
+Lags can be positive or negative integers and specify the number of indices to shift the timepoints.
+The examples below demonstrate applying different lags to genes 1 and 2. 
+
+
+```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE, fig.align='center'}
+library(ggplot2)
+
+set.seed(29876)
+
+
+a <- rbind(c(rep(0, 5), 8, 0), c(rep(0, 4), 4.3, 0, 0)) + rnorm(2, 0, 0.5)
+
+dat <- data.frame(intensity = as.vector(a), time = rep(c(0, 5, 15, 30, 45, 60, 75), each = 2), genes = factor(rep(c(1, 2), 7)))
+
+a2 <- a
+a2[1, ] <- c(a2[1, 2:7], NA)
+dat2 <- data.frame(intensity = as.vector(a2), time = rep(c(0, 5, 15, 30, 45, 60, 75), each = 2), genes = factor(rep(c(1, 2), 7)))
+
+a3 <- a
+a3[2, ] <- c(NA, a3[2, 1:6])
+a3[1, ] <- c(a3[1, 2:7], NA)
+dat3 <- data.frame(intensity = as.vector(a3), time = rep(c(0, 5, 15, 30, 45, 60, 75), each = 2), genes = factor(rep(c(1, 2), 7)))
+
+
+plot1 <- ggplot(dat, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) +  labs(x = "Time (min)") + labs(y = "Intensity") 
+plot1
+
+row1 <- c(0, 5, 15, 30, 45, 60, 75)
+knitr::kable(t(data.frame(Original = row1, Gene1 = row1, Gene2 = row1)), align = 'c')
+
+
+
+
+```
+
+```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE, fig.align='center'}
+
+plot2 <- ggplot(dat2, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
+  labs(x = "Time (min)") + labs(y = "Intensity") 
+plot2
+
+row2 <- c(5, 15, 30, 45, 60, 75, "-")
+
+knitr::kable(t(data.frame(Original = row1, Gene1 = row2, Gene2 = row1)), align = 'c')
+
+```
+
+
+```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE, fig.align='center'}
+
+plot3 <- ggplot(dat3, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
+  labs(x = "Time (min)") + labs(y = "Intensity") 
+plot3
+
+row3 <- c("-", 0, 5, 15, 30, 45, 60)
+
+knitr::kable(t(data.frame(Original = row1, Gene1 = row2, Gene2 = row3)), align = 'c')
+
+```
+
+The time series plots show aligned expression vectors, and the tables show the aligned timepoints.
+With no lags, the temporal profiles of genes 1 and 2 are not aligned so the gene pair will have a low LPWC similarity score (top row).
+When gene 1 has a lag of -1, the patterns are aligned, and the LPWC similarity score will be high (middle row).
+Finally, when gene 1 has a lag of -1 and gene 2 has a lag of 1, the temporal shapes are once again not aligned.
+In this case, the LPWC similarity score will be even lower than in the no lag case because the penalty for introducing lags is applied (bottom row).
 
 ## Obtaining gene-gene similarities
 
-LPWC computes similarity (an adjusted weighted correlation) between genes and returns three outputs: correlation of genes in dist form (see as.dist), the best lag used for each gene, and the C used.
+LPWC computes similarity (an adjusted weighted correlation) between genes and returns three outputs: correlation of genes in dist form (see as.dist), the best lag used for each gene, and the C used. The lags introduced are in reference to the original time points (i.e. lag of 0). 
 
 
 An example output of LPWC for 10 genes using high penalty follows:
@@ -185,6 +253,7 @@ Our development of LPWC benefited from help and
 feedback from many individuals, including but not limited to:
 
 Wenzhi Cao,
+Karl Broman, 
 Jen Birstler,
 James Dowell,
 Ron Stewart,
