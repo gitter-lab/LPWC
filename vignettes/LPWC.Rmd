@@ -167,6 +167,11 @@ knitr::kable(t(data.frame(Original = row1, Gene1 = row1, Gene2 = row1)), align =
 
 
 
+
+```
+
+```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE, fig.align='center'}
+
 plot2 <- ggplot(dat2, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
   labs(x = "Time (min)") + labs(y = "Intensity") 
 plot2
@@ -175,7 +180,10 @@ row2 <- c(5, 15, 30, 45, 60, 75, "-")
 
 knitr::kable(t(data.frame(Original = row1, Gene1 = row2, Gene2 = row1)), align = 'c')
 
+```
 
+
+```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE, fig.align='center'}
 
 plot3 <- ggplot(dat3, aes(x= time, y = intensity, group = genes)) + geom_line(aes(color = genes), size = 1.5) + 
   labs(x = "Time (min)") + labs(y = "Intensity") 
