@@ -139,7 +139,7 @@ Lags can be positive or negative integers and specify the number of indices to s
 The examples below demonstrate applying different lags to genes 1 and 2. 
 
 
-```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE}
+```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE, fig.align='center'}
 library(ggplot2)
 
 set.seed(29876)
