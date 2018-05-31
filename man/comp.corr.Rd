@@ -10,7 +10,7 @@ comp.corr(data, time, C)
 \item{data}{a lagged matrix with rows representing genes and columns representing
 different timepoints (NA's added when lags are needed)}
 
-\item{time}{a lagged matrix with row representing each genes timepoint and column representing the length of timepoint, NA is introduced when it is lagged}
+\item{time}{a lagged matrix with rows representing each gene's timepoint and columns representing the number of timepoints, NA is introduced when it is lagged}
 
 \item{C}{a numeric value of C used in computing weighted correlation}
 }
