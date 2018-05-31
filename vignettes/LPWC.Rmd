@@ -134,6 +134,10 @@ This is only relevant for the low penalty because the high penalty uses a single
 
 ## Interpreting lags
 
+Lags are taken with respect to the original timepoints vector.
+Lags can be positive or negative integers and specify the number of indices to shift the timepoints.
+The examples below demonstrate applying different lags to genes 1 and 2. 
+
 
 ```{r, echo = FALSE, fig.height = 2, fig.width=4, warning = FALSE}
 library(ggplot2)
@@ -159,7 +163,7 @@ plot1 <- ggplot(dat, aes(x= time, y = intensity, group = genes)) + geom_line(aes
 plot1
 
 row1 <- c(0, 5, 15, 30, 45, 60, 75)
-knitr::kable(t(data.frame(Gene1 = row1, Gene2 = row1)), align = 'c')
+knitr::kable(t(data.frame(Original = row1, Gene1 = row1, Gene2 = row1)), align = 'c')
 
 
 
@@ -167,10 +171,9 @@ plot2 <- ggplot(dat2, aes(x= time, y = intensity, group = genes)) + geom_line(ae
   labs(x = "Time (min)") + labs(y = "Intensity") 
 plot2
 
-row1 <- c(0, 5, 15, 30, 45, 60)
-row2 <- c(5, 15, 30, 45, 60, 75)
+row2 <- c(5, 15, 30, 45, 60, 75, "-")
 
-knitr::kable(t(data.frame(Gene1 = row2, Gene2 = row1)), align = 'c')
+knitr::kable(t(data.frame(Original = row1, Gene1 = row2, Gene2 = row1)), align = 'c')
 
 
 
@@ -178,19 +181,17 @@ plot3 <- ggplot(dat3, aes(x= time, y = intensity, group = genes)) + geom_line(ae
   labs(x = "Time (min)") + labs(y = "Intensity") 
 plot3
 
-row1 <- c(0, 5, 15, 30, 45)
-row2 <- c(5, 15, 30, 45, 60)
-knitr::kable(t(data.frame(Gene1 = row2, Gene2 = row1)), align = 'c')
+row3 <- c("-", 0, 5, 15, 30, 45, 60)
 
-
+knitr::kable(t(data.frame(Original = row1, Gene1 = row2, Gene2 = row3)), align = 'c')
 
 ```
 
-An example of the effects of applying different lags to genes 1 and 2. 
-The time series plot shows aligned expression vectors and the table shows the aligned timepoints.
-With no lags, $X_1 = 0$ and $X_2 = 0$, the temporal profiles of genes 1 and 2 are not aligned so the gene pair will have a low LPWC similarity score (top row).
-With lags $X_1 = -1$ and $X_2 = 0$, the patterns are aligned, and the LPWC similarity score will be high (middle row).
-Finally, with $X_1 = -1$ and $X_2 = 1$, the temporal shapes are once again not aligned, and the LPWC similarity score will be even lower than in the no lag case because the penalty for introducing lags is applied (bottom row).
+The time series plots show aligned expression vectors, and the tables show the aligned timepoints.
+With no lags, the temporal profiles of genes 1 and 2 are not aligned so the gene pair will have a low LPWC similarity score (top row).
+When gene 1 has a lag of -1, the patterns are aligned, and the LPWC similarity score will be high (middle row).
+Finally, when gene 1 has a lag of -1 and gene 2 has a lag of 1, the temporal shapes are once again not aligned.
+In this case, the LPWC similarity score will be even lower than in the no lag case because the penalty for introducing lags is applied (bottom row).
 
 ## Obtaining gene-gene similarities
 
