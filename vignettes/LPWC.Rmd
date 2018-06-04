@@ -80,7 +80,7 @@ library(LPWC)
 
 ## Required input
 
-**Data:**  Input to LPWC is a matrix.
+**Data**:  Input to LPWC is a matrix.
 We assume here that it is a gene expression matrix, but other data types are suitable as well.
 The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints.
 
