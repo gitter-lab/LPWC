@@ -25,7 +25,8 @@ prep.data() and best.lag().
 }
 \examples{
 ##upon preparing the data using the best.lag ouput, however the best.lag is sampled here
-lagged <- prep.data(array(rnorm(30), c(3, 10)), timepoints = seq(0, 45, 5), lags = sample(c(0, 1, -1, 2, -2), size = 3))
+lagged <- prep.data(array(rnorm(30), c(3, 10)), timepoints = seq(0, 45, 5),
+          lags = sample(c(0, 1, -1, 2, -2), size = 3))
 comp.corr(data = lagged$data, time = lagged$time, C = 10)
 
 ## example two with actual best.lag output
