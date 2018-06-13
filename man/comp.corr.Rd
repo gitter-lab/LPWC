@@ -24,15 +24,16 @@ It should only be used after the fixed lags have already been applied to the dat
 prep.data() and best.lag().
 }
 \examples{
-##upon preparing the data using the best.lag ouput, however the best.lag is sampled here
+## upon introducing lags (or shifts) in the data, the correlation is computed
+## using comp.corr. However the best.lag is randomly sampled for illustration purpose
 lagged <- prep.data(array(rnorm(30), c(3, 10)), timepoints = seq(0, 45, 5),
           lags = sample(c(0, 1, -1, 2, -2), size = 3))
 comp.corr(data = lagged$data, time = lagged$time, C = 10)
 
-## example two with actual best.lag output
-data2 <- array(rnorm(120), c(10, 12))
-bl <- best.lag(data = data2, timepoints = 1:12, C = 5)
-lag.data <- prep.data(data2, timepoints = 1:12, lags = bl)
+## another example with actual best.lag output
+randdata <- array(rnorm(120), c(10, 12))
+bl <- best.lag(data = randdata, timepoints = 1:12, C = 5)
+lag.data <- prep.data(randdata, timepoints = 1:12, lags = bl)
 comp.corr(lag.data$data, time = lag.data$time, C = 5)
 
 
