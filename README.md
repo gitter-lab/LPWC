@@ -6,6 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/gitter-lab/LPWC/branch/master/graph/badge.svg)](https://codecov.io/gh/gitter-lab/LPWC)
 [![Build status](https://ci.appveyor.com/api/projects/status/9xtm9s42awiir55r?svg=true)](https://ci.appveyor.com/project/agitter/lpwc)
+[![Rdoc](http://www.rdocumentation.org/badges/version/LPWC)](http://www.rdocumentation.org/packages/LPWC)
 
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
