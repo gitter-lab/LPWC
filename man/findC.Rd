@@ -14,13 +14,13 @@ if null, defaults to the floor of the number of timepoints divided by 4}
 
 \item{pi}{a numeric value between 0.5 and 1 for the upper bound on the penalty}
 
-\item{iter}{a numeric value with number of penalty}
+\item{iter}{a numeric value with the number of penalties to test}
 }
 \value{
-a vector of length (10 or indicated by iter) different C to be tested
+a vector of length iter of the different values of C to test
 }
 \description{
-This function computes the best C using the timepoints and max lag in the dataset
+This function computes the values of C to test using the timepoints and max lag in the dataset
 }
 \examples{
 findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
