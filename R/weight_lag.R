@@ -6,7 +6,9 @@
 #' @param x2 a vector
 #' @return a matrix with two rows with the shortest length of the vector as the number of columns
 #'
-#' @examples weight.lag(1:5, 2:9)
+#' @examples
+#' weight.lag(1:5, 2:9)
+#' weight.lag (seq(0, 10, 2), seq(4, 10, 2))
 #'
 #'
 #' @author Thevaa Chandereng, Anthony Gitter

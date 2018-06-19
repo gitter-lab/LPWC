@@ -51,7 +51,8 @@ library(LPWC)
 
 Usage
 ------------
-See the vignette for usage instructions.
+See the [vignette](https://cran.r-project.org/web/packages/LPWC/vignettes/LPWC.html) for usage instructions.
+
 
 Reference
 ------------

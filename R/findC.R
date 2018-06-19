@@ -1,16 +1,19 @@
 #' Finding best C
 #'
-#' This function computes the best C using the timepoints and max lag in the dataset
+#' This function computes the values of C to test using the timepoints and max lag in the dataset
 #'
 #' @param timepoints a vector of timepoints used in the dataset
 #' @param max.lag a numeric value with maximum lags allowed,
 #' if null, defaults to the floor of the number of timepoints divided by 4
 #' @param pi a numeric value between 0.5 and 1 for the upper bound on the penalty
-#' @param iter a numeric value with number of penalty
-#' @return a vector of length (10 or indicated by iter) different C to be tested
+#' @param iter a numeric value with the number of penalties to test
+#' @return a vector of length iter of the different values of C to test
 #'
-#' @examples findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
-#'
+#' @examples
+#' findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
+#' findC(c(2, 4, 8, 16, 32, 64, 128, 256), iter = 5)
+#' findC(c(2, 6, 10, 15, 22, 30, 40, 55, 80), pi = 0.8, iter = 20)
+#' findC(c(1, 2, 3.2, 4, 5.3, 7), pi = 0.99)
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
@@ -36,12 +39,12 @@ findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
   #taking the mean over the log penalty
   app <- - mean(vals) / log(penalty)
   realC <- rep(NA, length(penalty))
-  #solving the root euqations for the summation
+  #solving the root equations for the summation
   for(b in 1:length(penalty)){
     fun <- function(C) { mean(exp(- 1 / C * vals)) - penalty[b]}
     realC[b] <- uniroot(f = fun, c(0, app[b]))$root
   }
-  #printing different C for different penalty values
+  #return different C for different penalty values
   return(realC)
 }
 
