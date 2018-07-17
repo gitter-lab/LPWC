@@ -17,6 +17,7 @@ It is designed to identify groups of biological entities (for example, genes or 
 LPWC allows lags to incorporate delayed responses in the biological data.
 For example, two genes may have similar expression changes over time, but one initiates those changes 5 minutes after the other.
 LPWC also supports irregular time intervals between time points collected in biological data.
+The LPWC website is available [here](https://gitter-lab.github.io/LPWC/). 
 
 Installation
 ------------
