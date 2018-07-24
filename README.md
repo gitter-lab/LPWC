@@ -52,7 +52,7 @@ library(LPWC)
 
 Usage
 ------------
-See the [vignette](https://cran.r-project.org/web/packages/LPWC/vignettes/LPWC.html) for usage instructions.
+See the [vignette](https://gitter-lab.github.io/LPWC/articles/LPWC.html) for usage instructions.
 
 
 Reference

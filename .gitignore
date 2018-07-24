@@ -13,3 +13,5 @@
 vignettes/*
 !vignettes/*.Rmd
 .Rproj.user
+
+docs/*
