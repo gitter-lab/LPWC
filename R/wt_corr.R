@@ -14,6 +14,7 @@
 #'
 #' @source \url{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient#Weighted_correlation_coefficient}
 #'
+#' @export wt.corr
 #'
 wt.corr <- function(x, y, w){
   #checking of all the conditions are fulfilled

@@ -11,7 +11,9 @@
 #' @param C a numeric value of C used in computing weighted correlation
 #' @return a vector of best lags used in the dataset, one per gene
 #'
-#' @example
+#' @importFrom stats cor
+#'
+#' @examples
 #' best.lag(data = array(rnorm(20), c(4, 5)), timepoints = c(0, 5, 10, 20, 40), C = 300)
 #' best.lag(data = array(runif(100), c(5, 20)), timepoints = seq(2, 40, 2), C = 10)
 #' best.lag(data = array(runif(100), c(5, 20)), timepoints = seq(2, 40, 2), max.lag = 2, C = 10)
@@ -19,6 +21,7 @@
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
+#' @export best.lag
 #'
 
 best.lag <- function(data, timepoints, max.lag = NULL, C){

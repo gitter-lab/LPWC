@@ -11,4 +11,6 @@
 #'
 #' @examples
 #' data(simdata)
+#'
+#'
 "simdata"

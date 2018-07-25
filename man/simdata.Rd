@@ -14,5 +14,7 @@ See https://doi.org/10.1093/bioinformatics/btw665
 }
 \examples{
 data(simdata)
+
+
 }
 \keyword{datasets}

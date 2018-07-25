@@ -24,6 +24,13 @@ a vector of best lags used in the dataset, one per gene
 \code{best.lag} computes the best lags for a dataset using weighted correlation.
 The lags obtained are in reference to the original timepoints.
 }
+\examples{
+best.lag(data = array(rnorm(20), c(4, 5)), timepoints = c(0, 5, 10, 20, 40), C = 300)
+best.lag(data = array(runif(100), c(5, 20)), timepoints = seq(2, 40, 2), C = 10)
+best.lag(data = array(runif(100), c(5, 20)), timepoints = seq(2, 40, 2), max.lag = 2, C = 10)
+
+
+}
 \author{
 Thevaa Chandereng, Anthony Gitter
 }
