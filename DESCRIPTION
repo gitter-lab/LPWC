@@ -17,4 +17,5 @@ VignetteBuilder: knitr
 URL: https://github.com/gitter-lab/LPWC
 BugReports: https://github.com/gitter-lab/LPWC/issues
 Imports: ggplot2,
-    knitr
+    knitr,
+    devtools
