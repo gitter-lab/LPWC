@@ -245,6 +245,7 @@ dist <- 1 - LPWC::corr.bestlag(simdata[11:20, ], timepoints = timepoints, max.la
 cutree(hclust(dist), k = 3)
 ```
 
+## Filtering genes
 
 
 # Contributors
@@ -257,6 +258,7 @@ Karl Broman,
 Jen Birstler,
 James Dowell,
 Ron Stewart,
+John Steill
 leungi (Github user), 
 Gitter Lab members.
 
