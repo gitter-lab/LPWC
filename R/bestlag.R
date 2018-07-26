@@ -33,6 +33,8 @@ best.lag <- function(data, timepoints, max.lag = NULL, C){
   #checking through all the conditions
   stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,
             is.numeric(max.lag), is.numeric(C))
+  #checking for 0 variance
+  if(any(apply(data, 1, var) == 0)){stop("At least one of the gene has 0 variance(s)!")}
   #creating an empty vector for storing the best lag
   shift <- rep(NA, dim(data)[1])
   for(i in 1:dim(data)[1]){
