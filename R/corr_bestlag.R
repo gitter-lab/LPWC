@@ -37,7 +37,8 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   data <- as.matrix(data)
   #checking the condition
   stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,  is.numeric(iter),
-            penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0)
+            penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0, iter > 1,
+            max.lag >= 1)
   #finding the values of C
   values <- findC(timepoints, max.lag, iter = iter)
   #if C is already given, the matrix is computed based on that value
