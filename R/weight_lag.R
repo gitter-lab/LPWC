@@ -13,6 +13,7 @@
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
+#' @export weight.lag
 #'
 
 

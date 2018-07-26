@@ -9,6 +9,8 @@
 #' @param iter a numeric value with the number of penalties to test
 #' @return a vector of length iter of the different values of C to test
 #'
+#' @importFrom stats uniroot
+#'
 #' @examples
 #' findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
 #' findC(c(2, 4, 8, 16, 32, 64, 128, 256), iter = 5)
@@ -17,6 +19,7 @@
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
+#' @export findC
 #'
 
 

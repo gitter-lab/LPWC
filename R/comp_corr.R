@@ -12,6 +12,8 @@
 #' @return a simmilarity matrix with values between -1 and 1
 #' (1 highly correlated, 0 no correlation)
 #'
+#' @importFrom stats as.dist
+#'
 #' @examples
 #' ## This function computes the correlation after the lags (or shifts) have
 #' ## been computed.  In this example, the lags argument is randomly sampled
@@ -32,6 +34,7 @@
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
+#' @export comp.corr
 #'
 
 

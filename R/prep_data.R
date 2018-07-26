@@ -18,6 +18,7 @@
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
+#' @export prep.data
 #'
 
 

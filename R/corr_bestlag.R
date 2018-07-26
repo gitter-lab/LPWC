@@ -23,7 +23,7 @@
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
-#'
+#' @export corr.bestlag
 
 
 
