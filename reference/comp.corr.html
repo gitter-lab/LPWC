@@ -148,9 +148,9 @@ different timepoints (NA's added when lags are needed)</p></td>
 <span class='co'>## prepares a transformed dataset for comp.corr().</span>
 <span class='no'>lagged</span> <span class='kw'>&lt;-</span> <span class='fu'>prep.data</span>(<span class='fu'>array</span>(<span class='fu'>rnorm</span>(<span class='fl'>30</span>), <span class='fu'>c</span>(<span class='fl'>3</span>, <span class='fl'>10</span>)), <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>45</span>, <span class='fl'>5</span>),
           <span class='kw'>lags</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, -<span class='fl'>1</span>, <span class='fl'>2</span>, -<span class='fl'>2</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>))
-<span class='fu'>comp.corr</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>data</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>time</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt;               1             2
-#&gt; 2 -1.425973e-05              
-#&gt; 3  1.386934e-05 -3.379718e-01</div><div class='input'>
+<span class='fu'>comp.corr</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>data</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>time</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt;            1          2
+#&gt; 2 -0.1524207           
+#&gt; 3  0.2619629  0.1669154</div><div class='input'>
 <span class='co'>## This example shows how comp.corr is used in practice with real data.</span>
 <span class='co'>## The best.lag() function is called first to pre-compute the lags, which</span>
 <span class='co'>## are passed to prep.data().</span>
@@ -158,15 +158,15 @@ different timepoints (NA's added when lags are needed)</p></td>
 <span class='no'>bl</span> <span class='kw'>&lt;-</span> <span class='fu'>best.lag</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>randdata</span>, <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>12</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>5</span>)
 <span class='no'>lag.data</span> <span class='kw'>&lt;-</span> <span class='fu'>prep.data</span>(<span class='no'>randdata</span>, <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>12</span>, <span class='kw'>lags</span> <span class='kw'>=</span> <span class='no'>bl</span>)
 <span class='fu'>comp.corr</span>(<span class='no'>lag.data</span>$<span class='no'>data</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='no'>lag.data</span>$<span class='no'>time</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt;              1           2           3           4           5           6
-#&gt; 2   0.18751214                                                            
-#&gt; 3  -0.17043115  0.32901461                                                
-#&gt; 4  -0.22791412 -0.18636540  0.11089858                                    
-#&gt; 5   0.31840273  0.11694111  0.46237234  0.01959168                        
-#&gt; 6   0.41146060  0.51103208  0.23295283  0.18914001  0.68924689            
-#&gt; 7   0.04230538  0.51272504  0.44871958  0.18139686  0.33077630  0.24358002
-#&gt; 8  -0.36005491  0.21437260  0.14091441  0.04312405  0.01223047  0.26617803
-#&gt; 9  -0.02373178 -0.31763499 -0.21457828  0.44423347  0.19952227  0.40264178
-#&gt; 10  0.38682016  0.25989366 -0.20370551 -0.72189730 -0.04114213  0.04178265
+#&gt; 2  -0.35822127                                                            
+#&gt; 3  -0.15418123  0.10934719                                                
+#&gt; 4   0.87356260 -0.58680190 -0.11289677                                    
+#&gt; 5  -0.36068706 -0.11587157 -0.60325691 -0.26271861                        
+#&gt; 6  -0.28300733  0.26714178  0.27042798 -0.26757381 -0.13654873            
+#&gt; 7  -0.38303289 -0.31864939  0.29125844 -0.09353025  0.35404957  0.12830633
+#&gt; 8   0.04984673  0.17401303  0.53082994 -0.01647289 -0.58374117  0.19810114
+#&gt; 9   0.18477504 -0.36434806  0.25222517  0.23074225 -0.09000143 -0.13542134
+#&gt; 10  0.42484772  0.42371700  0.16453183  0.02985382 -0.52280737  0.01780643
 #&gt;              7           8           9
 #&gt; 2                                     
 #&gt; 3                                     
@@ -174,9 +174,9 @@ different timepoints (NA's added when lags are needed)</p></td>
 #&gt; 5                                     
 #&gt; 6                                     
 #&gt; 7                                     
-#&gt; 8  -0.30121866                        
-#&gt; 9  -0.22870491  0.33186696            
-#&gt; 10 -0.14031001  0.05997291 -0.32683876</div><div class='input'>
+#&gt; 8  -0.01488773                        
+#&gt; 9   0.35438023 -0.07792687            
+#&gt; 10 -0.65952337  0.40868636 -0.36892601</div><div class='input'>
 
 </div></pre>
   </div>

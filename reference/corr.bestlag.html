@@ -153,11 +153,11 @@ if null, a default is computed based on the penalty argument</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>corr.bestlag</span>(<span class='fu'>array</span>(<span class='fu'>rnorm</span>(<span class='fl'>30</span>), <span class='fu'>c</span>(<span class='fl'>5</span>, <span class='fl'>6</span>)), <span class='kw'>max.lag</span> <span class='kw'>=</span> <span class='fl'>1</span>,
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>15</span>, <span class='fl'>20</span>, <span class='fl'>25</span>), <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='st'>"high"</span>)</div><div class='output co'>#&gt; $corr
-#&gt;             1           2           3           4
-#&gt; 2 -0.96620181                                    
-#&gt; 3  0.11411012 -0.09384700                        
-#&gt; 4 -0.25578448  0.09157218  0.65535759            
-#&gt; 5 -0.28439306  0.27456292 -0.57709017 -0.44806191
+#&gt;            1          2          3          4
+#&gt; 2 -0.1517864                                 
+#&gt; 3  0.2248099 -0.5332766                      
+#&gt; 4  0.2976208 -0.8639861  0.1388098           
+#&gt; 5 -0.5652999  0.3731797 -0.6542605 -0.3130839
 #&gt; 
 #&gt; $lags
 #&gt; [1] 0 0 0 0 0
@@ -167,39 +167,31 @@ if null, a default is computed based on the penalty argument</p></td>
 #&gt; </div><div class='input'><span class='fu'>corr.bestlag</span>(<span class='fu'>array</span>(<span class='fu'>runif</span>(<span class='fl'>40</span>, <span class='fl'>0</span>, <span class='fl'>20</span>), <span class='fu'>c</span>(<span class='fl'>4</span>, <span class='fl'>10</span>)),
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1.5</span>, <span class='fl'>3</span>, <span class='fl'>6</span>, <span class='fl'>12</span>, <span class='fl'>18</span>, <span class='fl'>26</span>, <span class='fl'>39</span>, <span class='fl'>50</span>), <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='st'>"high"</span>)</div><div class='output co'>#&gt; $corr
 #&gt;            1          2          3
-#&gt; 2  0.1206054                      
-#&gt; 3  0.3713809  0.2780212           
-#&gt; 4  0.2071182 -0.1076810  0.2572054
+#&gt; 2 0.34642751                      
+#&gt; 3 0.16597141 0.04381154           
+#&gt; 4 0.56904909 0.34780431 0.33603452
 #&gt; 
 #&gt; $lags
-#&gt; [1]  1  1 -1  1
+#&gt; [1]  0 -1  0  1
 #&gt; 
 #&gt; $C
 #&gt; [1] 145.7281
 #&gt; </div><div class='input'><span class='fu'>corr.bestlag</span>(<span class='fu'>matrix</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>rexp</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='fl'>2</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>8</span>),
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>15</span>, <span class='fl'>20</span>, <span class='fl'>40</span>), <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='st'>"low"</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; $corr
-#&gt;             1           2           3           4           5           6
-#&gt; 2  0.46119903                                                            
-#&gt; 3  0.04698926 -0.02682650                                                
-#&gt; 4 -0.59219404 -0.26578933  0.43526419                                    
-#&gt; 5 -0.24075914  0.29244892  0.13881577  0.49140594                        
-#&gt; 6 -0.08344291  0.22263002  0.49152794  0.70168718  0.83460460            
-#&gt; 7  0.74548579  0.33977802  0.43650873  0.08783259  0.01475797  0.24761720
-#&gt; 8  0.62255762  0.30842722  0.40296104 -0.05643434 -0.22332312  0.58004372
-#&gt;             7
-#&gt; 2            
-#&gt; 3            
-#&gt; 4            
-#&gt; 5            
-#&gt; 6            
-#&gt; 7            
-#&gt; 8  0.79684328
+#&gt;            1          2          3          4          5          6          7
+#&gt; 2 -0.7748456                                                                  
+#&gt; 3  0.5315331 -0.7485698                                                       
+#&gt; 4  0.2023999 -0.4808298  0.8632284                                            
+#&gt; 5 -0.7299764  0.2709059 -0.4995703 -0.3092350                                 
+#&gt; 6 -0.9027405  0.5488940 -0.4849267 -0.1617593  0.8589109                      
+#&gt; 7  0.4743248 -0.7656214  0.9869966  0.8930882 -0.3590924 -0.3540430           
+#&gt; 8 -0.9540451  0.9052804 -0.7861730 -0.4380442  0.6462569  0.8149260 -0.7068592
 #&gt; 
 #&gt; $lags
-#&gt; [1]  0 -1 -1  1  1  0  0  0
+#&gt; [1]  0  0  0 -1  1 -1  1  1
 #&gt; 
 #&gt; $C
-#&gt; [1] 280.4941
+#&gt; [1] 2680.662
 #&gt; </div><div class='input'>
 
 </div></pre>
