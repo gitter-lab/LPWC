@@ -28,7 +28,7 @@ findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
   }
   #checking through all the conditions
   stopifnot(all(is.numeric(timepoints)), max.lag <= length(timepoints) / 4, max.lag %% 1 == 0,
-            (pi > 0.5 & pi < 1), iter > 1, iter %% 1 == 0)
+            (pi > 0.5 & pi < 1), iter > 1, iter %% 1 == 0, max.lag >= 1)
   #running through the penalty for different iterations and pi's
   penalty <- seq(0.5, pi, length.out = iter)
   vals <- NULL
