@@ -31,8 +31,9 @@ best.lag <- function(data, timepoints, max.lag = NULL, C){
     max.lag <- floor(length(timepoints) / 4)
   }
   #checking through all the conditions
-  stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,
-            is.numeric(max.lag), is.numeric(C))
+  stopifnot(dim(data)[2] == length(timepoints), (max.lag <= length(timepoints) / 4
+            & max.lag >= 1), dim(data)[2] >= 4, max.lag %% 1 == 0, is.numeric(max.lag),
+            is.numeric(C), C > 0)
   #creating an empty vector for storing the best lag
   shift <- rep(NA, dim(data)[1])
   for(i in 1:dim(data)[1]){

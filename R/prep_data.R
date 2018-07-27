@@ -26,8 +26,8 @@
 prep.data <- function(data, lags, timepoints){
   #checking all the conditions
   stopifnot(dim(data)[1] == length(lags), is.vector(lags), all(is.numeric(lags)),
-            all(abs(lags) <= length(timepoints) / 4), dim(data)[2] == length(timepoints),
-            is.vector(timepoints))
+            all(abs(lags) <= length(timepoints) / 4),
+            dim(data)[2] == length(timepoints), is.vector(timepoints))
   data <- as.matrix(data)
   #new matrix for data and time to incorporate lags
   new.data <- array(NA, dim(data))
