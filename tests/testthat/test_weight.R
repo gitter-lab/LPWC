@@ -6,5 +6,5 @@ test_that("the weight vector/penalty is/are", {
   expect_error(round(weight(t = c(0, 2, 5, 9, 15), lag = 3, C = "a")$w, 2))
   expect_error(round(weight(t = c(0, 2, 5, "b", 15), lag = 3, C = "a")$w, 2))
   expect_error(round(weight(t = c(0, 2, 5, 9, 15), lag = "f", C = "a")$w, 2))
-  expect_error(weight(t = c(0, 2, 5, 9, 15), lag = "f", C = -1))
+  expect_error(weight(t = c(0, 2, 5, 9, 15), lag = 1, C = -1))
 })
