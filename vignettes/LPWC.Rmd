@@ -258,7 +258,7 @@ Karl Broman,
 Jen Birstler,
 James Dowell,
 Ron Stewart,
-John Steill
+John Steill,
 leungi (Github user), 
 Gitter Lab members.
 
