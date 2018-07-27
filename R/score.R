@@ -18,7 +18,8 @@
 
 score <- function(corr, lags){
   #checking the corr and lags vector
-  stopifnot(length(corr) == length(lags), all(is.numeric(corr)), all(is.numeric(lags)))
+  stopifnot(length(corr) == length(lags), all(is.numeric(corr)),
+            all(is.numeric(lags)))
   #taking unique lags and sorting them
   uni.lags <- sort(unique(lags))
   value <- rep(NA, length(uni.lags))
