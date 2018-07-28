@@ -35,9 +35,14 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
     max.lag <- floor(length(timepoints) / 4)
   }
   data <- as.matrix(data)
+  #ADDED test cases to see if C > 0
+  if(!is.null(C)){
+    stopifnot(C > 0)
+  }
   #checking the condition
   stopifnot(dim(data)[2] == length(timepoints), max.lag <= length(timepoints) / 4,  is.numeric(iter),
-            penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0)
+            penalty == "high" | penalty == "low", max.lag %% 1 == 0, iter %% 1 == 0, iter > 1,
+            max.lag >= 1)
   #checking for 0 variance
   if(any(apply(data, 1, var) == 0)){stop("At least one of the genes has 0 variance!")}
   #finding the values of C

@@ -21,7 +21,7 @@
 #computing weights for inside the weighted correlation and outside penalty function
 weight <- function(t, lag, C){
   #checking if all the variables are right
-  stopifnot(length(t)/4 >= lag, is.numeric(C), all(is.numeric(t)), is.numeric(lag))
+  stopifnot(length(t) / 4 >= lag, is.numeric(C), C > 0, all(is.numeric(t)), is.numeric(lag))
   #creating two rows with lagged timepoints
   tlag <- rbind(t[(lag + 1):length(t)], t[1:(length(t) - lag)])
   # w0 is the outside penalty function
