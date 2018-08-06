@@ -247,6 +247,10 @@ cutree(hclust(dist), k = 3)
 
 ## Filtering genes
 
+Since $corr(x, y) = \frac{cov(x, y)}{\sqrt{var(x) var(y)}}$, variance of gene x \&  gene y needs to be > 0. 
+If any gene has a 0 variance, the function **corr.bestlag** and **best.lag** will produce the output (At least one of the genes has 0 variance!). 
+Ideally, it is better to run LPWC with genes that are significantly differentially expressed over time. 
+
 
 # Contributors
 
