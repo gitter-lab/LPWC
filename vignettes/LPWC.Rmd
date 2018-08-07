@@ -253,8 +253,8 @@ This code can be used to filter **data** and remove genes with 0 variance before
 
 
 ```{r, eval = FALSE}
-index0 <- apply(data, 1, function(x){which(var(x) == 0)})
-subset.data <- data[-index0, ]
+indexnon0 <- apply(data, 1, function(x){which(var(x) != 0)})
+subset.data <- data[indexnon0, ]
 ```
 
 Ideally, it is better to run LPWC only with genes that are significantly differentially expressed over time.
