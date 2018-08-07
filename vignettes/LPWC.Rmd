@@ -245,6 +245,19 @@ dist <- 1 - LPWC::corr.bestlag(simdata[11:20, ], timepoints = timepoints, max.la
 cutree(hclust(dist), k = 3)
 ```
 
+## Filtering genes
+
+Because $corr(x, y) = \frac{cov(x, y)}{\sqrt{var(x) var(y)}}$, the variance of genes x and gene y needs to be > 0.
+If any gene has 0 variance, the functions **corr.bestlag** and **best.lag** will stop with the error: `At least one of the genes has 0 variance!`
+This code can be used to filter **data** and remove genes with 0 variance before running LPWC.
+
+
+```{r, eval = FALSE}
+indexnon0 <- apply(data, 1, function(x){which(var(x) != 0)})
+subset.data <- data[indexnon0, ]
+```
+
+Ideally, it is better to run LPWC only with genes that are significantly differentially expressed over time.
 
 
 # Contributors
@@ -257,6 +270,7 @@ Karl Broman,
 Jen Birstler,
 James Dowell,
 Ron Stewart,
+John Steill,
 leungi (Github user), 
 Gitter Lab members.
 

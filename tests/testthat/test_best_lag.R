@@ -14,4 +14,5 @@ test_that("the best lag is", {
   expect_error(best.lag(rand.data, timepoints = c(0, 5, 10, 15, 20, 25, 30), C = 20, max.lag = 6))
   expect_error(best.lag(rand.data, timepoints = c(0, 5, 10, 15, 20, 25, 30), C = -1.3, max.lag = 1))
   expect_error(best.lag(rand.data, timepoints = c(0, 5, 10, 15, 20, 25, 30), C = 2.8, max.lag = 1.5))
+  expect_error(best.lag(array(10, c(10, 10)), seq(1, 10, 1), max.lag = 1, C = 10))
 })
