@@ -25,7 +25,7 @@ wt.corr <- function(x, y, w){
     w <- rep(1, length(w))
   }
   #checking if the sum of the weights are 1, if not normalize them
-  else if(sum(w) != 1){
+  if(sum(w) != 1){
     w <- w / sum(w)
   }
   #weighted mean of x and y
