@@ -22,7 +22,7 @@ wt.corr <- function(x, y, w){
             length(x) == length(y), length(x) == length(w))
   #check if the weights are 0, if they are 0, add 1 to all of them
   if(all(w == 0)){
-    w <- w + 1
+    w <- rep(1, length(w))
   }
   #checking if the sum of the weights are 1, if not normalize them
   else if(sum(w) != 1){
