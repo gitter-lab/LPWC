@@ -34,7 +34,6 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
-  data <- as.matrix(data)
   #ADDED test cases to see if C > 0
   if(!is.null(C)){
     stopifnot(C > 0)
