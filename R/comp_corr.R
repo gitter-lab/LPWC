@@ -39,6 +39,8 @@
 
 
 comp.corr <- function(data, time, C){
+  if(!is.null(row.names(data))){rownames <- row.names(data)}
+  else{rownames <- NULL}
   #checking for all the conditions with data, time and C
   stopifnot(all(dim(data) == dim(time)), is.numeric(C), C > 0)
   #creating an empty matrix to store the correlation values
@@ -55,6 +57,7 @@ comp.corr <- function(data, time, C){
       corr[i, j] <- exp(-1 / C * mean(weights)) * wt.corr(pair[1, ], pair[2, ], exp(-1 / C * weights))
     }
   }
+  rownames(corr) <- rownames
   #picking the correlation matrix
   return(as.dist(corr))
 }
