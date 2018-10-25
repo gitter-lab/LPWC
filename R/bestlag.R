@@ -25,6 +25,8 @@
 #'
 
 best.lag <- function(data, timepoints, max.lag = NULL, C){
+  if(!is.null(row.names(data))){rownames <- row.names(data)}
+  else{rownames <- NULL}
   data <- as.matrix(data)
   #assigning the max lag if it is NULL
   if(is.null(max.lag)){
@@ -76,5 +78,6 @@ best.lag <- function(data, timepoints, max.lag = NULL, C){
     #finding the best lag
     shift[i] <- score(bcorr, lags)
   }
+  names(shift) <- rownames
   return(shift)
 }
