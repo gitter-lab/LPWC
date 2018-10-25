@@ -24,6 +24,8 @@
 
 
 prep.data <- function(data, lags, timepoints){
+  if(!is.null(row.names(data))){rownames <- row.names(data)}
+  else{rownames <- NULL}
   #checking all the conditions
   stopifnot(dim(data)[1] == length(lags), is.vector(lags), all(is.numeric(lags)),
             all(abs(lags) <= length(timepoints) / 4),
@@ -51,6 +53,7 @@ prep.data <- function(data, lags, timepoints){
       new.time[i, ] <- c(rep(NA, lags[i]), timepoints[1:(dim(data)[2] - lags[i])])
     }
   }
+  rownames(new.data) <- rownames
   #return a list of lag timepoints and data
   return(list(data = new.data, time = new.time))
 }
