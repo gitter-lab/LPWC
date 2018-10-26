@@ -5,7 +5,7 @@
 #' prep.data() and best.lag().
 #'
 #'
-#' @param data a lagged matrix with rows representing genes and columns representing
+#' @param data a lagged matrix/data.frame with rows representing genes and columns representing
 #' different timepoints (NA's added when lags are needed)
 #' @param time a lagged matrix with rows representing each gene's timepoint and columns representing the number of timepoints, NA is introduced when it is lagged
 #' @param C a numeric value of C used in computing weighted correlation

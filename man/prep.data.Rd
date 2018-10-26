@@ -7,8 +7,9 @@
 prep.data(data, lags, timepoints)
 }
 \arguments{
-\item{data}{a matrix with rows representing genes and columns representing
-different timepoints}
+\item{data}{a matrix/data.frame with rows representing genes and columns
+representing different timepoints. The object name can be specified using
+the \code{rownames()} of data.}
 
 \item{lags}{a vector of same length as the number of rows in the data column
 indicating the best lags}

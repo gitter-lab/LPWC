@@ -2,7 +2,9 @@
 #'
 #' This function computes correlation based on best picked lags. The lags indicate delayed changes.
 #'
-#' @param data a matrix with rows representing genes and columns representing different timepoints
+#' @param data a matrix/data.frame with rows representing genes and columns
+#' representing different timepoints. The object name can be specified using
+#' the \code{rownames()} of data.
 #' @param max.lag a integer value of the maximum lags allowed in the dataset,
 #' if null, defaults to the floor of the number of timepoints divided by 4
 #' @param timepoints a vector of time points used in the dataset
