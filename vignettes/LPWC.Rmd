@@ -80,9 +80,10 @@ library(LPWC)
 
 ## Required input
 
-**Data**:  Input to LPWC is a matrix.
+**Data**:  Input to LPWC is a matrix/data.frame.
 We assume here that it is a gene expression matrix, but other data types are suitable as well.
-The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints.
+The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints. The object names can be specified in the row names of ythe data frame 
+using \code{rownames}.
 
 The object **simdata** is a simulated dataset for 200 genes with 8 timepoints that follow the biological [impulse model](https://doi.org/10.1093/bioinformatics/btw665).
 This is stored as a matrix.
