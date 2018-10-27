@@ -3,9 +3,9 @@
 #' @description \code{best.lag} computes the best lags for a dataset using weighted correlation.
 #' The lags obtained are in reference to the original timepoints.
 #'
-#' @param data a matrix/data.frame with rows representing genes and columns
-#' representing different timepoints. The object name can be specified using
-#' the \code{rownames()} of data.
+#' @param data a matrix or data frame with rows representing genes and columns
+#' representing different timepoints. If data is a data frame, the gene names
+#' can be specified using the \code{row.names()}.
 #' @param max.lag a numeric value of the maximum lag allowed, if null,
 #' defaults to the floor of the number of timepoints divided by 4
 #' @param timepoints a vector of time points used in the dataset
