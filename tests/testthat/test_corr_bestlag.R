@@ -10,6 +10,8 @@ test_that("the corr is", {
               C = 10000000, penalty = "high")$lags[1]), rownames(simdata[50, ]))
   expect_equal(as.numeric(corr.bestlag(data = simdata[50:70, ],
                timepoints = c(0, 2, 4, 6, 8, 18, 24, 32, 48, 72), penalty = "high")$lags[1]), 1)
+  expect_equal(as.numeric(corr.bestlag(data = simdata[50:60, ],
+               timepoints = c(0, 2, 4, 6, 8, 18, 24, 32, 48, 72), penalty = "low")$lags[1]), 1)
   expect_equal(signif(corr.bestlag(data = simdata[20:30, ],
                timepoints = c(0, 2, 4, 6, 8, 18, 24, 32, 48, 72))$corr[5], 2), 0.91)
   expect_equal(signif(corr.bestlag(data = simdata[1:10, ],
