@@ -86,7 +86,7 @@ The expression matrix should be n -by- p where n is the number of genes (in rows
 If **data** is a data frame, the gene names can be specified using the `row.names()`.
 
 The object **simdata** is a simulated dataset for 200 genes with 8 timepoints that follow the biological [impulse model](https://doi.org/10.1093/bioinformatics/btw665).
-This is stored as a matrix.
+This is stored as a data frame in the package with row names representing gene labels.
 
 
 
