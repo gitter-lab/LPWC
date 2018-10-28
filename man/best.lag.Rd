@@ -7,8 +7,9 @@
 best.lag(data, timepoints, max.lag = NULL, C)
 }
 \arguments{
-\item{data}{a matrix with rows representing genes and columns
-representing different timepoints}
+\item{data}{a matrix or data frame with rows representing genes and columns
+representing different timepoints. If data is a data frame, the gene names
+can be specified using the \code{row.names()}.}
 
 \item{timepoints}{a vector of time points used in the dataset}
 

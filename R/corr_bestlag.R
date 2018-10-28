@@ -2,7 +2,9 @@
 #'
 #' This function computes correlation based on best picked lags. The lags indicate delayed changes.
 #'
-#' @param data a matrix with rows representing genes and columns representing different timepoints
+#' @param data a matrix or data frame with rows representing genes and columns
+#' representing different timepoints. If data is a data frame, the gene names
+#' can be specified using the \code{row.names()}.
 #' @param max.lag a integer value of the maximum lags allowed in the dataset,
 #' if null, defaults to the floor of the number of timepoints divided by 4
 #' @param timepoints a vector of time points used in the dataset
@@ -34,7 +36,6 @@ corr.bestlag <- function(data, timepoints, max.lag = NULL, C = NULL, penalty = "
   if(is.null(max.lag)){
     max.lag <- floor(length(timepoints) / 4)
   }
-  data <- as.matrix(data)
   #ADDED test cases to see if C > 0
   if(!is.null(C)){
     stopifnot(C > 0)

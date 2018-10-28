@@ -2,8 +2,9 @@
 #'
 #' This function prepares the data to compute correlation by introducing NA's when lags are needed
 #'
-#' @param data a matrix with rows representing genes and columns representing
-#' different timepoints
+#' @param data a matrix or data frame with rows representing genes and columns
+#' representing different timepoints. If data is a data frame, the gene names
+#' can be specified using the \code{row.names()}.
 #' @param lags a vector of same length as the number of rows in the data column
 #' indicating the best lags
 #' @param timepoints a vector of time points used in the dataset
@@ -24,6 +25,8 @@
 
 
 prep.data <- function(data, lags, timepoints){
+  if(!is.null(row.names(data))){rownames <- row.names(data)}
+  else{rownames <- NULL}
   #checking all the conditions
   stopifnot(dim(data)[1] == length(lags), is.vector(lags), all(is.numeric(lags)),
             all(abs(lags) <= length(timepoints) / 4),
@@ -51,6 +54,7 @@ prep.data <- function(data, lags, timepoints){
       new.time[i, ] <- c(rep(NA, lags[i]), timepoints[1:(dim(data)[2] - lags[i])])
     }
   }
+  rownames(new.data) <- rownames
   #return a list of lag timepoints and data
   return(list(data = new.data, time = new.time))
 }

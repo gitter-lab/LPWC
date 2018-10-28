@@ -80,12 +80,13 @@ library(LPWC)
 
 ## Required input
 
-**Data**:  Input to LPWC is a matrix.
-We assume here that it is a gene expression matrix, but other data types are suitable as well.
+**Data**:  Input to LPWC is a matrix or data frame.
+We assume here that it is gene expression data, but other data types are suitable as well.
 The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints.
+If **data** is a data frame, the gene names can be specified using the `row.names()`.
 
 The object **simdata** is a simulated dataset for 200 genes with 8 timepoints that follow the biological [impulse model](https://doi.org/10.1093/bioinformatics/btw665).
-This is stored as a matrix.
+This is stored as a data frame in the package with row names representing gene labels.
 
 
 
@@ -98,7 +99,8 @@ str(simdata)
 
 
 **Timepoints:** The object **timepoints** should be a vector of timepoints that specify when the data were collected.
-This should match the column length in **Data**. This can be in any form (seconds, minutes, hours, or even days), but make sure the units are uniform throughout.
+This should match the column length in **Data**.
+This can be in any form (seconds, minutes, hours, or even days), but make sure the units are uniform throughout.
 
 The timepoints used in the example **simdata** are
 ```{r time}
