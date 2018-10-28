@@ -12,7 +12,7 @@
 #' @param C a numeric value of C used in computing weighted correlation
 #' @return a vector of best lags used in the dataset, one per gene
 #'
-#' @importFrom stats cor
+#' @importFrom stats cor var
 #'
 #' @examples
 #' best.lag(data = array(rnorm(20), c(4, 5)), timepoints = c(0, 5, 10, 20, 40), C = 300)

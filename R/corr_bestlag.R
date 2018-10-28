@@ -22,6 +22,7 @@
 #' corr.bestlag(matrix(data = rexp(n = 40, 2), nrow = 8),
 #'           timepoints = c(0, 5, 15, 20, 40), penalty = "low", iter = 5)
 #'
+#' @importFrom stats var
 #'
 #' @author Thevaa Chandereng, Anthony Gitter
 #'
