@@ -38,7 +38,6 @@ corr.bestlag(array(runif(40, 0, 20), c(4, 10)),
 corr.bestlag(matrix(data = rexp(n = 40, 2), nrow = 8),
           timepoints = c(0, 5, 15, 20, 40), penalty = "low", iter = 5)
 
-
 }
 \author{
 Thevaa Chandereng, Anthony Gitter
