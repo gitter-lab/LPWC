@@ -101,14 +101,12 @@
 <p>The second option is to download through GitHub.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"gitter-lab/LPWC"</span>)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; Downloading GitHub repo gitter-lab/LPWC@master</span></a></code></pre></div>
-<p>checking for file ‘/tmp/RtmpuWorDC/remotes62c917fabf2a/gitter-lab-LPWC-4525909/DESCRIPTION’ …</p>
-<p>✔ checking for file ‘/tmp/RtmpuWorDC/remotes62c917fabf2a/gitter-lab-LPWC-4525909/DESCRIPTION’</p>
+<p>checking for file ‘/tmp/RtmpMflBft/remotes35ae388d720f/gitter-lab-LPWC-33f32a9/DESCRIPTION’ …</p>
+<p>✔ checking for file ‘/tmp/RtmpMflBft/remotes35ae388d720f/gitter-lab-LPWC-33f32a9/DESCRIPTION’</p>
 <p>─ preparing ‘LPWC’:</p>
-<p>checking DESCRIPTION meta-information …</p>
 <p>✔ checking DESCRIPTION meta-information</p>
 <p>─ checking for LF line-endings in source and make files and shell scripts</p>
-<p>─ checking for empty or unneeded directories</p>
-<p>─ looking to see if a ‘data/datalist’ file should be added</p>
+<p>─ checking for empty or unneeded directories ─ looking to see if a ‘data/datalist’ file should be added</p>
 <p>─ building ‘LPWC_0.99.4.tar.gz’</p>
 <pre><code>#&gt; Installing package into '/home/travis/R/Library'
 #&gt; (as 'lib' is unspecified)</code></pre>
@@ -117,8 +115,8 @@
 <div id="required-input" class="section level2">
 <h2 class="hasAnchor">
 <a href="#required-input" class="anchor"></a>Required input</h2>
-<p><strong>Data</strong>: Input to LPWC is a matrix. We assume here that it is a gene expression matrix, but other data types are suitable as well. The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints.</p>
-<p>The object <strong>simdata</strong> is a simulated dataset for 200 genes with 8 timepoints that follow the biological <a href="https://doi.org/10.1093/bioinformatics/btw665">impulse model</a>. This is stored as a matrix.</p>
+<p><strong>Data</strong>: Input to LPWC is a matrix or data frame. We assume here that it is gene expression data, but other data types are suitable as well. The expression matrix should be n -by- p where n is the number of genes (in rows) and p is the number of timepoints. If <strong>data</strong> is a data frame, the gene names can be specified using the <code>row.names()</code>.</p>
+<p>The object <strong>simdata</strong> is a simulated dataset for 200 genes with 8 timepoints that follow the biological <a href="https://doi.org/10.1093/bioinformatics/btw665">impulse model</a>. This is stored as a data frame in the package with row names representing gene labels.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">data</span>(simdata)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">simdata[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;           Time_ 1   Time_ 2   Time_ 3   Time_ 4  Time_ 5  Time_ 6  Time_ 7</span></a>
@@ -268,32 +266,35 @@
 <p>An example output of LPWC for 10 genes using high penalty follows:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">LPWC<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/LPWC/topics/corr.bestlag">corr.bestlag</a></span>(simdata[<span class="dv">49</span><span class="op">:</span><span class="dv">58</span>, ], <span class="dt">timepoints =</span> timepoints, <span class="dt">max.lag =</span> <span class="dv">2</span>, <span class="dt">penalty =</span> <span class="st">"high"</span>, <span class="dt">iter =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; $corr</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;               1            2            3            4            5</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; 2   0.851923851                                                    </span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; 3  -0.218237490  0.185296315                                       </span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; 4  -0.503013415 -0.185206626  0.820661318                          </span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; 5  -0.459664840 -0.098109602  0.846568127  0.902530166             </span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; 6  -0.299615918  0.147669259  0.942905074  0.707652473  0.725611385</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; 7  -0.324090620  0.008691392  0.801844343  0.827065718  0.783988169</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; 8  -0.311218630  0.145879675  0.958900623  0.806729108  0.821231416</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; 9  -0.177943816  0.183155731  0.818514482  0.584610971  0.733599647</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt; 10 -0.412958564  0.050367297  0.943102621  0.773563872  0.818502367</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;               6            7            8            9</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 2                                                     </span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt; 3                                                     </span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt; 4                                                     </span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt; 5                                                     </span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="co">#&gt; 6                                                     </span></a>
-<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">#&gt; 7   0.686430019                                       </span></a>
-<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="co">#&gt; 8   0.961429975  0.712528238                          </span></a>
-<a class="sourceLine" id="cb8-21" data-line-number="21"><span class="co">#&gt; 9   0.803809413  0.756633891  0.740717669             </span></a>
-<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="co">#&gt; 10  0.951300777  0.727622247  0.937457260  0.748985339</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;              Gene_ 49     Gene_ 50     Gene_ 51     Gene_ 52     Gene_ 53</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; Gene_ 50  0.851923851                                                    </span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; Gene_ 51 -0.218237490  0.185296315                                       </span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; Gene_ 52 -0.503013415 -0.185206626  0.820661318                          </span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; Gene_ 53 -0.459664840 -0.098109602  0.846568127  0.902530166             </span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; Gene_ 54 -0.299615918  0.147669259  0.942905074  0.707652473  0.725611385</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; Gene_ 55 -0.324090620  0.008691392  0.801844343  0.827065718  0.783988169</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; Gene_ 56 -0.311218630  0.145879675  0.958900623  0.806729108  0.821231416</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; Gene_ 57 -0.177943816  0.183155731  0.818514482  0.584610971  0.733599647</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt; Gene_ 58 -0.412958564  0.050367297  0.943102621  0.773563872  0.818502367</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;              Gene_ 54     Gene_ 55     Gene_ 56     Gene_ 57</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; Gene_ 50                                                    </span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt; Gene_ 51                                                    </span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt; Gene_ 52                                                    </span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt; Gene_ 53                                                    </span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="co">#&gt; Gene_ 54                                                    </span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">#&gt; Gene_ 55  0.686430019                                       </span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="co">#&gt; Gene_ 56  0.961429975  0.712528238                          </span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"><span class="co">#&gt; Gene_ 57  0.803809413  0.756633891  0.740717669             </span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="co">#&gt; Gene_ 58  0.951300777  0.727622247  0.937457260  0.748985339</span></a>
 <a class="sourceLine" id="cb8-23" data-line-number="23"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb8-24" data-line-number="24"><span class="co">#&gt; $lags</span></a>
-<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="co">#&gt;  [1] 0 1 0 0 0 0 0 0 0 0</span></a>
-<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-27" data-line-number="27"><span class="co">#&gt; $C</span></a>
-<a class="sourceLine" id="cb8-28" data-line-number="28"><span class="co">#&gt; [1] 306.2401</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="co">#&gt; Gene_ 49 Gene_ 50 Gene_ 51 Gene_ 52 Gene_ 53 Gene_ 54 Gene_ 55 Gene_ 56 </span></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co">#&gt;        0        1        0        0        0        0        0        0 </span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27"><span class="co">#&gt; Gene_ 57 Gene_ 58 </span></a>
+<a class="sourceLine" id="cb8-28" data-line-number="28"><span class="co">#&gt;        0        0 </span></a>
+<a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">#&gt; $C</span></a>
+<a class="sourceLine" id="cb8-31" data-line-number="31"><span class="co">#&gt; [1] 306.2401</span></a></code></pre></div>
 <p>However, many clustering algorithms, such as hierarchical clustering, take distances as input instead of similarities. We convert the similarities to distances by subtracting the similarities from 1. Initially</p>
 <p><span class="math display">\[ -1 \leq Corr \leq 1\]</span></p>
 <p>When we take Dist = 1 - Corr</p>
@@ -310,7 +311,10 @@
 <p>The genes can also be assigned to clusters using cutree function. An example of cluster assignment with 3 clusters:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dist &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>LPWC<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/LPWC/topics/corr.bestlag">corr.bestlag</a></span>(simdata[<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>, ], <span class="dt">timepoints =</span> timepoints, <span class="dt">max.lag =</span> <span class="dv">2</span>, <span class="dt">penalty =</span> <span class="st">"low"</span>, <span class="dt">iter =</span> <span class="dv">10</span>)<span class="op">$</span>corr</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">cutree</span>(<span class="kw">hclust</span>(dist), <span class="dt">k =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt;  [1] 1 2 3 2 3 3 2 2 3 1</span></a></code></pre></div>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; Gene_ 11 Gene_ 12 Gene_ 13 Gene_ 14 Gene_ 15 Gene_ 16 Gene_ 17 Gene_ 18 </span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt;        1        2        3        2        3        3        2        2 </span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt; Gene_ 19 Gene_ 20 </span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt;        3        1</span></a></code></pre></div>
 </div>
 <div id="filtering-genes" class="section level2">
 <h2 class="hasAnchor">
@@ -364,7 +368,7 @@
 <a class="sourceLine" id="cb12-32" data-line-number="32"><span class="co">#&gt; [22] yaml_2.2.0        pkgdown_1.1.0     withr_2.1.2      </span></a>
 <a class="sourceLine" id="cb12-33" data-line-number="33"><span class="co">#&gt; [25] stringr_1.3.1     roxygen2_6.1.0    xml2_1.2.0       </span></a>
 <a class="sourceLine" id="cb12-34" data-line-number="34"><span class="co">#&gt; [28] knitr_1.20        desc_1.2.0        fs_1.2.6         </span></a>
-<a class="sourceLine" id="cb12-35" data-line-number="35"><span class="co">#&gt; [31] devtools_2.0.0    grid_3.5.1        rprojroot_1.3-2  </span></a>
+<a class="sourceLine" id="cb12-35" data-line-number="35"><span class="co">#&gt; [31] devtools_2.0.1    grid_3.5.1        rprojroot_1.3-2  </span></a>
 <a class="sourceLine" id="cb12-36" data-line-number="36"><span class="co">#&gt; [34] glue_1.3.0        R6_2.3.0          processx_3.2.0   </span></a>
 <a class="sourceLine" id="cb12-37" data-line-number="37"><span class="co">#&gt; [37] rmarkdown_1.10    sessioninfo_1.1.0 callr_3.0.0      </span></a>
 <a class="sourceLine" id="cb12-38" data-line-number="38"><span class="co">#&gt; [40] magrittr_1.5      scales_1.0.0      backports_1.1.2  </span></a>
