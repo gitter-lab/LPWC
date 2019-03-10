@@ -48,7 +48,7 @@ just reply that the question should be posted to the
 Prior to analyzing your data, the R package needs to be installed.
 
 The easiest way to install LPWC is through CRAN:
-```{r}
+```{r, eval = FALSE}
 install.packages("LPWC")
 ```
 
@@ -65,7 +65,7 @@ devtools::install_version("LPWC", version = "x.x.x", repos = "http://cran.us.r-p
 
 The second option is to download through GitHub. 
 
-```{r, eval = FALSE}
+```{r, results='asis'}
 devtools::install_github("gitter-lab/LPWC")
 ```
 
