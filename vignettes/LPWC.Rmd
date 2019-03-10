@@ -65,7 +65,7 @@ devtools::install_version("LPWC", version = "x.x.x", repos = "http://cran.us.r-p
 
 The second option is to download through GitHub. 
 
-```{r, results='asis'}
+```{r, eval = FALSE}
 devtools::install_github("gitter-lab/LPWC")
 ```
 
