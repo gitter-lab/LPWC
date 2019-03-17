@@ -1,3 +1,4 @@
+^runtime\.txt$
 ^docs$
 ^.*\.Rproj$
 ^\.Rproj\.user$
