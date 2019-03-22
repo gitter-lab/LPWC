@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/gitter-lab/LPWC/branch/master/graph/badge.svg)](https://codecov.io/gh/gitter-lab/LPWC)
 [![Build status](https://ci.appveyor.com/api/projects/status/851q74xh2ue87tid?svg=true)](https://ci.appveyor.com/project/gitter-lab/lpwc)
-[![Binder]([![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gitter-lab/LPWC-examples/master?urlpath=rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gitter-lab/LPWC-examples/master?urlpath=rstudio)
 
 **Authors**: Thevaa Chandereng and Anthony Gitter
 
