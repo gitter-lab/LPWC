@@ -56,6 +56,10 @@ Usage
 See the [vignette](https://gitter-lab.github.io/LPWC/articles/LPWC.html) for usage instructions.
 
 
+Examples
+------------
+The LPWC example repo is available [here](https://github.com/gitter-lab/LPWC-examples). All the code can be excuted in [binder](https://mybinder.org/v2/gh/gitter-lab/LPWC-examples/master?urlpath=rstudio). 
+
 Reference
 ------------
 If you use LPWC, please cite
