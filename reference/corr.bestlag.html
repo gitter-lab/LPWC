@@ -81,6 +81,9 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -157,42 +160,42 @@ if null, a default is computed based on the penalty argument</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>corr.bestlag</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>30</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>6</span>)), <span class='kw'>max.lag</span> <span class='kw'>=</span> <span class='fl'>1</span>,
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>15</span>, <span class='fl'>20</span>, <span class='fl'>25</span>), <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='st'>"high"</span>)</div><div class='output co'>#&gt; $corr
-#&gt;            1          2          3          4
-#&gt; 2 -0.1517864                                 
-#&gt; 3  0.2248099 -0.5332766                      
-#&gt; 4  0.2976208 -0.8639861  0.1388098           
-#&gt; 5 -0.5652999  0.3731797 -0.6542605 -0.3130839
+#&gt;             1           2           3           4
+#&gt; 2 -0.42000485                                    
+#&gt; 3 -0.39753686 -0.63640974                        
+#&gt; 4 -0.32406819 -0.45352765  0.66776179            
+#&gt; 5 -0.82938601  0.66038159 -0.04060399 -0.07683003
 #&gt; 
 #&gt; $lags
-#&gt; [1] 0 0 0 0 0
+#&gt; [1] 1 0 0 0 0
 #&gt; 
 #&gt; $C
 #&gt; [1] 10
 #&gt; </div><div class='input'><span class='fu'>corr.bestlag</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>40</span>, <span class='fl'>0</span>, <span class='fl'>20</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>4</span>, <span class='fl'>10</span>)),
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1.5</span>, <span class='fl'>3</span>, <span class='fl'>6</span>, <span class='fl'>12</span>, <span class='fl'>18</span>, <span class='fl'>26</span>, <span class='fl'>39</span>, <span class='fl'>50</span>), <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='st'>"high"</span>)</div><div class='output co'>#&gt; $corr
-#&gt;            1          2          3
-#&gt; 2 0.34642751                      
-#&gt; 3 0.16597141 0.04381154           
-#&gt; 4 0.56904909 0.34780431 0.33603452
+#&gt;             1           2           3
+#&gt; 2 -0.70014226                        
+#&gt; 3  0.44803649 -0.06757151            
+#&gt; 4  0.44937358  0.06441000  0.33544992
 #&gt; 
 #&gt; $lags
-#&gt; [1]  0 -1  0  1
+#&gt; [1] 0 1 0 0
 #&gt; 
 #&gt; $C
 #&gt; [1] 145.7281
 #&gt; </div><div class='input'><span class='fu'>corr.bestlag</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Exponential'>rexp</a></span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='fl'>2</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>8</span>),
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>15</span>, <span class='fl'>20</span>, <span class='fl'>40</span>), <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='st'>"low"</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; $corr
 #&gt;            1          2          3          4          5          6          7
-#&gt; 2 -0.7748456                                                                  
-#&gt; 3  0.5315331 -0.7485698                                                       
-#&gt; 4  0.2023999 -0.4808298  0.8632284                                            
-#&gt; 5 -0.7299764  0.2709059 -0.4995703 -0.3092350                                 
-#&gt; 6 -0.9027405  0.5488940 -0.4849267 -0.1617593  0.8589109                      
-#&gt; 7  0.4743248 -0.7656214  0.9869966  0.8930882 -0.3590924 -0.3540430           
-#&gt; 8 -0.9540451  0.9052804 -0.7861730 -0.4380442  0.6462569  0.8149260 -0.7068592
+#&gt; 2  0.1165434                                                                  
+#&gt; 3 -0.6134928  0.6342942                                                       
+#&gt; 4  0.2647404  0.1890557 -0.3092350                                            
+#&gt; 5  0.4886498  0.5343446 -0.1617593  0.8589109                                 
+#&gt; 6 -0.6891120  0.3297292  0.8930882 -0.3590924 -0.3540430                      
+#&gt; 7  0.8761933  0.3717267 -0.4380442  0.6462569  0.8149260 -0.7068592           
+#&gt; 8  0.6999832 -0.4231984 -0.9586673  0.5263167  0.4358409 -0.9149395  0.6330580
 #&gt; 
 #&gt; $lags
-#&gt; [1]  0  0  0 -1  1 -1  1  1
+#&gt; [1]  0 -1 -1  1 -1  0  1 -1
 #&gt; 
 #&gt; $C
 #&gt; [1] 2680.662

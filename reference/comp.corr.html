@@ -83,6 +83,9 @@ prep.data() and best.lag()." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -150,9 +153,9 @@ different timepoints (NAs added when lags are needed)</p></td>
 <span class='co'>## prepares a transformed dataset for comp.corr().</span>
 <span class='no'>lagged</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='prep.data.html'>prep.data</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>30</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>10</span>)), <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>45</span>, <span class='fl'>5</span>),
           <span class='kw'>lags</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, -<span class='fl'>1</span>, <span class='fl'>2</span>, -<span class='fl'>2</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>))
-<span class='fu'>comp.corr</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>data</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>time</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt;            1          2
-#&gt; 2 -0.1524207           
-#&gt; 3  0.2619629  0.1669154</div><div class='input'>
+<span class='fu'>comp.corr</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>data</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='no'>lagged</span>$<span class='no'>time</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt;             1           2
+#&gt; 2 0.020033639            
+#&gt; 3 0.004612629 0.166915429</div><div class='input'>
 <span class='co'>## This example shows how comp.corr is used in practice with real data.</span>
 <span class='co'>## The best.lag() function is called first to pre-compute the lags, which</span>
 <span class='co'>## are passed to prep.data().</span>
@@ -160,15 +163,15 @@ different timepoints (NAs added when lags are needed)</p></td>
 <span class='no'>bl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='best.lag.html'>best.lag</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>randdata</span>, <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>12</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>5</span>)
 <span class='no'>lag.data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='prep.data.html'>prep.data</a></span>(<span class='no'>randdata</span>, <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>12</span>, <span class='kw'>lags</span> <span class='kw'>=</span> <span class='no'>bl</span>)
 <span class='fu'>comp.corr</span>(<span class='no'>lag.data</span>$<span class='no'>data</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='no'>lag.data</span>$<span class='no'>time</span>, <span class='kw'>C</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt;              1           2           3           4           5           6
-#&gt; 2  -0.35822127                                                            
-#&gt; 3  -0.15418123  0.10934719                                                
-#&gt; 4   0.87356260 -0.58680190 -0.11289677                                    
-#&gt; 5  -0.36068706 -0.11587157 -0.60325691 -0.26271861                        
-#&gt; 6  -0.28300733  0.26714178  0.27042798 -0.26757381 -0.13654873            
-#&gt; 7  -0.38303289 -0.31864939  0.29125844 -0.09353025  0.35404957  0.12830633
-#&gt; 8   0.04984673  0.17401303  0.53082994 -0.01647289 -0.58374117  0.19810114
-#&gt; 9   0.18477504 -0.36434806  0.25222517  0.23074225 -0.09000143 -0.13542134
-#&gt; 10  0.42484772  0.42371700  0.16453183  0.02985382 -0.52280737  0.01780643
+#&gt; 2   0.67861143                                                            
+#&gt; 3   0.74379849  0.41604571                                                
+#&gt; 4  -0.10883989 -0.29628916  0.29364153                                    
+#&gt; 5   0.12171748  0.05236690  0.19625444 -0.16047194                        
+#&gt; 6   0.16555807 -0.15543591  0.33084530  0.12042764  0.46081170            
+#&gt; 7   0.13117544 -0.01423879  0.10853907 -0.03027215  0.21047377  0.36789065
+#&gt; 8   0.32047719  0.31276718  0.18546001  0.29896231  0.49362817  0.14101381
+#&gt; 9  -0.49302349 -0.53412251 -0.14270635 -0.34752417  0.47685720  0.39360609
+#&gt; 10 -0.11940481 -0.37677106  0.32322744  0.62266654 -0.02413093  0.07260506
 #&gt;              7           8           9
 #&gt; 2                                     
 #&gt; 3                                     
@@ -176,9 +179,9 @@ different timepoints (NAs added when lags are needed)</p></td>
 #&gt; 5                                     
 #&gt; 6                                     
 #&gt; 7                                     
-#&gt; 8  -0.01488773                        
-#&gt; 9   0.35438023 -0.07792687            
-#&gt; 10 -0.65952337  0.40868636 -0.36892601</div><div class='input'>
+#&gt; 8   0.07397236                        
+#&gt; 9   0.12321073 -0.46186376            
+#&gt; 10 -0.13460288 -0.07879476  0.16638854</div><div class='input'>
 
 </div></pre>
   </div>

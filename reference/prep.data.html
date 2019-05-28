@@ -81,6 +81,9 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -144,12 +147,12 @@ and another matrix with the timepoints used for each row in the dataset</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>prep.data</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>20</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>4</span>)), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, -<span class='fl'>1</span>, <span class='fl'>1</span>),
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>15</span>, <span class='fl'>30</span>))</div><div class='output co'>#&gt; $data
-#&gt;             [,1]       [,2]       [,3]       [,4]
-#&gt; [1,] -0.05892959 -1.1262759  0.8137396  0.3243352
-#&gt; [2,] -0.53258072 -0.3694356 -1.4848223 -0.1388366
-#&gt; [3,]  1.07907227 -1.1815951 -1.4249221 -1.1836451
-#&gt; [4,]  0.05931762  1.9369219  1.6123666         NA
-#&gt; [5,]          NA -0.6660184 -1.8316199  0.6884226
+#&gt;            [,1]       [,2]       [,3]       [,4]
+#&gt; [1,] -0.5514917  1.8034834  1.1004919 -0.9754230
+#&gt; [2,] -0.8657535 -0.1050687 -0.1738201 -0.3385765
+#&gt; [3,] -0.3438315  0.9824534  0.1788120  1.1523471
+#&gt; [4,] -1.7133026 -0.6984294  0.4051012         NA
+#&gt; [5,]         NA  0.8130582 -0.8320195 -0.9604492
 #&gt; 
 #&gt; $time
 #&gt;      [,1] [,2] [,3] [,4]
@@ -160,41 +163,41 @@ and another matrix with the timepoints used for each row in the dataset</p>
 #&gt; [5,]   NA    0    5   15
 #&gt; </div><div class='input'><span class='fu'>prep.data</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>10</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>10</span>, <span class='fl'>10</span>)), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>((-<span class='fl'>2</span>:<span class='fl'>2</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
           <span class='kw'>timepoints</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>15</span>, <span class='fl'>30</span>, <span class='fl'>45</span>, <span class='fl'>60</span>, <span class='fl'>75</span>, <span class='fl'>80</span>, <span class='fl'>100</span>, <span class='fl'>120</span>))</div><div class='output co'>#&gt; $data
-#&gt;           [,1]     [,2]     [,3]      [,4]     [,5]     [,6]      [,7]
-#&gt;  [1,]       NA 1.218646 6.229228 0.3857188 1.451154 6.305429 7.2628532
-#&gt;  [2,] 8.240329 9.671391 8.767677 1.6813245 9.821906 2.515776 0.3994066
-#&gt;  [3,] 6.230610 1.634123 2.859856 0.8603899 9.302815 2.264813 4.0527020
-#&gt;  [4,] 4.469974 5.138669 2.467509 2.4046123 4.194859 8.455401 2.6969463
-#&gt;  [5,] 7.082934 1.432664 3.979936 6.3888373 4.955599 3.458536 4.8828865
-#&gt;  [6,]       NA       NA 8.900290 6.5029870 6.320929 5.033951 3.5270469
-#&gt;  [7,]       NA       NA 1.043065 1.5529453 9.485788 2.505233 2.4873487
-#&gt;  [8,]       NA 6.304117 5.083099 3.4011924 9.790338 9.587279 1.1804457
-#&gt;  [9,] 6.273660 6.565796 3.599601 0.1369537 2.437913 5.697405 9.3642889
-#&gt; [10,] 8.249154 0.898489 1.989862 7.3572937 2.557493 6.964886 4.2943161
+#&gt;           [,1]     [,2]     [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 2.467509 2.404612 4.194859 8.4554005 2.6969463 3.1611551 8.1423137
+#&gt;  [2,] 1.432664 3.979936 6.388837 4.9555987 3.4585360 4.8828865 9.2452039
+#&gt;  [3,]       NA       NA 8.900290 6.5029870 6.3209288 5.0339508 3.5270469
+#&gt;  [4,] 1.552945 9.485788 2.505233 2.4873487 0.2701945 0.0247683 0.9196980
+#&gt;  [5,] 5.083099 3.401192 9.790338 9.5872790 1.1804457 4.9583467 7.3779515
+#&gt;  [6,] 6.273660 6.565796 3.599601 0.1369537 2.4379128 5.6974054 9.3642889
+#&gt;  [7,] 3.642624 5.030267 8.249154 0.8984890 1.9898624 7.3572937 2.5574926
+#&gt;  [8,]       NA       NA 6.229228 0.3857188 1.4511538 6.3054293 7.2628532
+#&gt;  [9,] 8.240329 9.671391 8.767677 1.6813245 9.8219060 2.5157763 0.3994066
+#&gt; [10,]       NA       NA 1.634123 2.8598557 0.8603899 9.3028154 2.2648133
 #&gt;            [,8]      [,9]    [,10]
-#&gt;  [1,] 9.2396077 5.5231878 7.007675
-#&gt;  [2,] 7.7064318        NA       NA
-#&gt;  [3,] 6.2845017 4.3152240 6.164986
-#&gt;  [4,] 3.1611551 8.1423137 1.592747
-#&gt;  [5,] 9.2452039 5.6658628 4.015980
-#&gt;  [6,] 0.6731983 0.5106245 9.064917
-#&gt;  [7,] 0.2701945 0.0247683 0.919698
-#&gt;  [8,] 4.9583467 7.3779515 7.193180
-#&gt;  [9,] 7.9447767        NA       NA
-#&gt; [10,] 2.4258702        NA       NA
+#&gt;  [1,] 1.5927475        NA       NA
+#&gt;  [2,] 5.6658628 4.0159801       NA
+#&gt;  [3,] 0.6731983 0.5106245 9.064917
+#&gt;  [4,] 8.8030903 4.1796604       NA
+#&gt;  [5,] 7.1931796 7.6393436       NA
+#&gt;  [6,] 7.9447767        NA       NA
+#&gt;  [7,] 6.9648858 4.2943161 2.425870
+#&gt;  [8,] 9.2396077 5.5231878 7.007675
+#&gt;  [9,] 7.7064318 0.2910415       NA
+#&gt; [10,] 4.0527020 6.2845017 4.315224
 #&gt; 
 #&gt; $time
 #&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-#&gt;  [1,]   NA    0    5   15   30   45   60   75   80   100
-#&gt;  [2,]   15   30   45   60   75   80  100  120   NA    NA
-#&gt;  [3,]    0    5   15   30   45   60   75   80  100   120
-#&gt;  [4,]    0    5   15   30   45   60   75   80  100   120
-#&gt;  [5,]    0    5   15   30   45   60   75   80  100   120
-#&gt;  [6,]   NA   NA    0    5   15   30   45   60   75    80
-#&gt;  [7,]   NA   NA    0    5   15   30   45   60   75    80
-#&gt;  [8,]   NA    0    5   15   30   45   60   75   80   100
-#&gt;  [9,]   15   30   45   60   75   80  100  120   NA    NA
-#&gt; [10,]   15   30   45   60   75   80  100  120   NA    NA
+#&gt;  [1,]   15   30   45   60   75   80  100  120   NA    NA
+#&gt;  [2,]    5   15   30   45   60   75   80  100  120    NA
+#&gt;  [3,]   NA   NA    0    5   15   30   45   60   75    80
+#&gt;  [4,]    5   15   30   45   60   75   80  100  120    NA
+#&gt;  [5,]    5   15   30   45   60   75   80  100  120    NA
+#&gt;  [6,]   15   30   45   60   75   80  100  120   NA    NA
+#&gt;  [7,]    0    5   15   30   45   60   75   80  100   120
+#&gt;  [8,]   NA   NA    0    5   15   30   45   60   75    80
+#&gt;  [9,]    5   15   30   45   60   75   80  100  120    NA
+#&gt; [10,]   NA   NA    0    5   15   30   45   60   75    80
 #&gt; </div><div class='input'>
 </div></pre>
   </div>
