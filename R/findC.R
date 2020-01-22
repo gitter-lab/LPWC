@@ -9,7 +9,6 @@
 #' @param iter a numeric value with the number of penalties to test
 #' @return a vector of length iter of the different values of C to test
 #'
-#' @importFrom stats uniroot
 #' @importFrom nleqslv nleqslv
 #'
 #' @examples
