@@ -65,7 +65,7 @@ Reference
 ------------
 If you use LPWC, please cite
 
-[Chandereng, T., Gitter, A. Lag penalized weighted correlation for time series clustering. *BMC Bioinformatics* 21, 21 (2020). https://doi.org/10.1186/s12859-019-3324-1](doi.org/10.1186/s12859-019-3324-1)
+Chandereng, T., Gitter, A. Lag penalized weighted correlation for time series clustering. *BMC Bioinformatics* 21, 21 (2020). [https://doi.org/10.1186/s12859-019-3324-1](https://doi.org/10.1186/s12859-019-3324-1)
 
 
 License
