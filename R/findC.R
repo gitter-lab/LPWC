@@ -9,7 +9,7 @@
 #' @param iter a numeric value with the number of penalties to test
 #' @return a vector of length iter of the different values of C to test
 #'
-#' @importFrom stats uniroot
+#' @importFrom nleqslv nleqslv
 #'
 #' @examples
 #' findC(c(0, 5, 10, 15, 20, 25), max.lag = 1, iter = 15)
@@ -45,8 +45,8 @@ findC <- function(timepoints, max.lag = NULL, pi = 0.95, iter = 10){
   realC <- rep(NA, length(penalty))
   #solving the root equations for the summation
   for(b in 1:length(penalty)){
-    fun <- function(C) { mean(exp(- 1 / C * vals)) - penalty[b]}
-    realC[b] <- uniroot(f = fun, c(0, app[b]))$root
+    fun <- function(x) { mean(exp(- 1 / x * vals)) - penalty[b]}
+    realC[b] <- nleqslv(100, fun)$x
   }
   #return different C for different penalty values
   return(realC)
