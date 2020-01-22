@@ -4,17 +4,19 @@ citEntry(entry = "Article",
   title        = "Lag Penalized Weighted Correlation for Time Series Clustering",
   author       = personList(as.person("Thevaa Chandereng"),
                    as.person("Anthony Gitter")),
-  journal      = "bioRxiv",
-  year         = "2018",
-  pages        = "292615",
-  url          = "https://doi.org/10.1101/292615",
-  publisher    = "Cold Spring Harbor Laboratory",
-  doi          = "10.1101/292615",
+  journal      = BMC Bioinformatics,
+  volume       = 21,
+  number       = 1,
+  pages        = 1--15,
+  year         = 2020,
+  url          = "https://doi.org/10.1186/s12859-019-3324-1",
+  publisher    = Springer,
+  doi          = "10.1186/s12859-019-3324-1",
 
   textVersion  =
-  paste("Thevaa Chandereng, Anthony Gitter (2018).",
+  paste("Thevaa Chandereng, Anthony Gitter (2020).",
         "Lag Penalized Weighted Correlation for Time Series Clustering.",
-        "bioRxiv, 292615.",
-        "URL https://doi.org/10.1101/292615.")
+        "BMC Bioinformatics, 21(1), 1-15.",
+        "URL https://doi.org/10.1186/s12859-019-3324-1.")
 )
 
