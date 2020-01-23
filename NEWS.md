@@ -1,14 +1,14 @@
 # LPWC 1.0.0
 Changes in version 1.0.0 include:
 
-* fixed bug with findC. 
-* updated citation information. 
-* link LPWC-examples to README. 
+* fixed bug with findC
+* updated citation information
+* link LPWC-examples with executable Binder examples to README
 
 # LPWC 0.99.5
 Changes in version 0.99.5 include:
 
-* moved packages in description from imports to suggests.
+* moved packages in description from imports to suggests
 * the following code chunk is not evaluated in the CRAN release:
 `devtools::install_github("gitter-lab/LPWC")`
 
