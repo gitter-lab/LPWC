@@ -1,6 +1,5 @@
 Package: LPWC
-Version: 0.99.5
-Date: 2019-03-12
+Version: 1.0.0
 Title: Lag Penalized Weighted Correlation for Time Series Clustering
 Authors@R: c(person(given = "Thevaa",
              family = "Chandereng",
@@ -11,7 +10,7 @@ Authors@R: c(person(given = "Thevaa",
              family = "Gitter",
              role = c("aut", "cph"),
              comment = c(ORCID = "0000-0002-5324-9833")))
-Description: Computes a time series distance measure for clustering based on weighted correlation and introduction of lags. The lags capture delayed responses in a time series dataset. The timepoints must be specified. T. Chandereng, A. Gitter (2018) <doi:10.1101/292615>.
+Description: Computes a time series distance measure for clustering based on weighted correlation and introduction of lags. The lags capture delayed responses in a time series dataset. The timepoints must be specified. T. Chandereng, A. Gitter (2020) <doi:10.1186/s12859-019-3324-1>.
 Depends:
     R (>= 3.0.2)
 Suggests: testthat, 

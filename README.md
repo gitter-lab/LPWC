@@ -65,9 +65,8 @@ Reference
 ------------
 If you use LPWC, please cite
 
-Lag Penalized Weighted Correlation for Time Series Clustering.
-Thevaa Chandereng, Anthony Gitter.
-*bioRxiv* 2018. [doi:10.1101/292615](https://doi.org/10.1101/292615)
+Chandereng, T., Gitter, A. Lag penalized weighted correlation for time series clustering. *BMC Bioinformatics* 21, 21 (2020). <https://doi.org/10.1186/s12859-019-3324-1>
+
 
 License
 ------------
