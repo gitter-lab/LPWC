@@ -1,3 +1,10 @@
+# LPWC 1.0.0
+Changes in version 1.0.0 include:
+
+* fixed bug with findC. 
+* updated citation information. 
+* link LPWC-examples to README. 
+
 # LPWC 0.99.5
 Changes in version 0.99.5 include:
 
