@@ -1,5 +1,6 @@
 Package: LPWC
 Version: 1.0.0
+Published: 2020-01-23
 Title: Lag Penalized Weighted Correlation for Time Series Clustering
 Authors@R: c(person(given = "Thevaa",
              family = "Chandereng",
