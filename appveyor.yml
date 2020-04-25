@@ -10,8 +10,10 @@ init:
 install:
   ps: Bootstrap
 
-cache:
-  - C:\RLibrary
+# AppVeyor builds started failing around the time R 4.0.0 was released
+# Error: package 'remotes' was installed before R 4.0.0: please re-install it
+#cache:
+#  - C:\RLibrary
 
 # Adapt as necessary starting from here
 
