@@ -1,5 +1,9 @@
 # See https://docs.travis-ci.com/user/languages/r/
 language: r
+r:
+  - oldrel
+  - release
+  - devel
 cache: packages
 
 r_packages:
@@ -18,6 +22,7 @@ deploy:
   local-dir: docs
   on:
     branch: master
+    condition: "$TRAVIS_R_VERSION_STRING = release"
 
 notifications:
   email: false
